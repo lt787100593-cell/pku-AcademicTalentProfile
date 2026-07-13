@@ -15,308 +15,94 @@
         </div>
     </nav>
 
-    <!-- 英雄区 -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>学院看板移动端</h1>
-                <p class="hero-subtitle">面向二级学院院长的智能人事数据看板</p>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-value">30秒</span>
-                        <span class="stat-label">掌握学院全貌</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value">4个Tab</span>
-                        <span class="stat-label">核心功能模块</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value">20+</span>
-                        <span class="stat-label">数据分析维度</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-value">28个</span>
-                        <span class="stat-label">学院对比</span>
-                    </div>
+    <!-- 主展示区（手机框为主角） -->
+    <section class="showcase">
+        <!-- 标题叠加层 -->
+        <div class="showcase-header">
+            <h1>学院看板移动端</h1>
+            <p>面向二级学院院长的智能人事数据看板</p>
+        </div>
+        
+        <!-- 巨大手机框 -->
+        <div class="phone-wrapper">
+            <div class="phone-glow"></div>
+            <div class="phone-frame">
+                <div class="phone-screen">
+                    <iframe src="https://lt787100593-cell.github.io/pku-AcademicTalentProfile/" frameborder="0"></iframe>
                 </div>
+            </div>
+        </div>
+
+        <!-- 数据指标 -->
+        <div class="showcase-stats">
+            <div class="stat-item">
+                <span class="stat-value">30秒</span>
+                <span class="stat-label">掌握学院全貌</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">4个Tab</span>
+                <span class="stat-label">核心功能模块</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">20+</span>
+                <span class="stat-label">数据分析维度</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-value">28个</span>
+                <span class="stat-label">学院对比</span>
             </div>
         </div>
     </section>
 
-    <!-- 手机体验区 + 功能简介（左右分布） -->
-    <section class="phone-section">
+    <!-- 功能简介（精简横向排列） -->
+    <section class="features">
         <div class="container">
-            <div class="phone-layout">
-                <!-- 左侧：手机体验 -->
-                <div class="phone-wrapper">
-                    <div class="phone-frame">
-                        <div class="phone-screen">
-                            <iframe src="https://lt787100593-cell.github.io/pku-AcademicTalentProfile/" frameborder="0"></iframe>
-                        </div>
-                    </div>
-                </div>
-                <!-- 右侧：功能简介 -->
-                <div class="feature-brief">
-                    <h2>核心功能</h2>
-                    <p class="feature-brief-desc">四大模块，覆盖人事数据全维度分析</p>
-                    <div class="brief-list">
-                        <div class="brief-item">
-                            <div class="brief-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
-                                    <rect x="3" y="3" width="7" height="7"></rect>
-                                    <rect x="14" y="3" width="7" height="7"></rect>
-                                    <rect x="14" y="14" width="7" height="7"></rect>
-                                    <rect x="3" y="14" width="7" height="7"></rect>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4>总览</h4>
-                                <p>核心KPI、引才质量指数、编制使用率、退休潮预测</p>
-                            </div>
-                        </div>
-                        <div class="brief-item">
-                            <div class="brief-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
-                                    <line x1="18" y1="20" x2="18" y2="10"></line>
-                                    <line x1="12" y1="20" x2="12" y2="4"></line>
-                                    <line x1="6" y1="20" x2="6" y2="14"></line>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4>分析</h4>
-                                <p>8大分布维度、趋势分析、全校对比、学科对比</p>
-                            </div>
-                        </div>
-                        <div class="brief-item">
-                            <div class="brief-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <line x1="12" y1="16" x2="12" y2="12"></line>
-                                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4>洞察</h4>
-                                <p>人才画像、学缘来源、流动指标、投入产出</p>
-                            </div>
-                        </div>
-                        <div class="brief-item">
-                            <div class="brief-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="9" cy="7" r="4"></circle>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h4>名单</h4>
-                                <p>人员/人才/获奖筛选查询</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 核心功能详情 -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">功能详情</h2>
-            
-            <!-- 总览详情 -->
-            <div class="detail-card">
-                <div class="detail-header">
-                    <div class="detail-number">01</div>
-                    <div>
-                        <h3>总览</h3>
-                        <p>30秒掌握学院人事全貌</p>
-                    </div>
-                </div>
-                <div class="detail-content">
-                    <div class="detail-item">
-                        <h4>核心KPI卡片</h4>
-                        <p>在职人数、专任教师、高层次人才、本年获奖，每个指标含同比环比变化趋势</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>引才质量指数</h4>
-                        <p>综合评分 = 博士占比×0.3 + 海外学缘×0.3 + 高层次人才×0.4，显示全校排名</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>编制使用率</h4>
-                        <p>进度条 + 按类别详情表格（专任教师/职员/合同制/博士后），显示使用率和预警状态</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>退休潮预测</h4>
-                        <p>未来3年退休预测，分正高/副高显示人数，辅助人才补充规划</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 分析详情 -->
-            <div class="detail-card">
-                <div class="detail-header">
-                    <div class="detail-number">02</div>
-                    <div>
-                        <h3>分析</h3>
-                        <p>多维度数据可视化分析</p>
-                    </div>
-                </div>
-                <div class="detail-content">
-                    <div class="detail-item">
-                        <h4>分布结构分析</h4>
-                        <p>8大维度Tab切换：年龄、性别、学历、职称、学缘、政治面貌、人才分布、获奖分析</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>趋势分析</h4>
-                        <p>近5年在职人数变化（双线图）、博士占比趋势、高层次人才变化（分组柱状图）、获奖人次（堆叠图）</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>全校对比</h4>
-                        <p>雷达图展示6维度对比（博士占比、海外学缘、人才、年龄、职称、学缘），各指标显示全校排名</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>学科发展对比</h4>
-                        <p>各学科教师数、博士占比、高层次人才、平均晋升副高/正高年限</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 洞察详情 -->
-            <div class="detail-card">
-                <div class="detail-header">
-                    <div class="detail-number">03</div>
-                    <div>
-                        <h3>洞察</h3>
-                        <p>深度数据分析与洞察</p>
-                    </div>
-                </div>
-                <div class="detail-content">
-                    <div class="detail-item">
-                        <h4>人才画像标签云</h4>
-                        <p>可视化展示学历、学缘、学科、人才、特征等分布标签</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>学缘来源分析</h4>
-                        <p>TOP5毕业院校来源、本校学缘占比与全校对比</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>人员流动指标</h4>
-                        <p>近三年人员流失率、平均在职年限、近三年新进人员占比</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>人才投入产出</h4>
-                        <p>各类人才（院士/长江/杰青/青年）人数、获奖人次、人均获奖</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 名单详情 -->
-            <div class="detail-card">
-                <div class="detail-header">
-                    <div class="detail-number">04</div>
-                    <div>
-                        <h3>名单</h3>
-                        <p>人员信息查询与筛选</p>
-                    </div>
-                </div>
-                <div class="detail-content">
-                    <div class="detail-item">
-                        <h4>多维度筛选</h4>
-                        <p>支持按类型筛选：全部人员、人员、人才、获奖</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>搜索功能</h4>
-                        <p>支持按姓名、职称、学历、部门搜索</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>获奖详情</h4>
-                        <p>获奖级别（国家级/省部级/校级）、获奖名称、项目名称、获奖时间</p>
-                    </div>
-                    <div class="detail-item">
-                        <h4>人事信息</h4>
-                        <p>点击人员查看详情：姓名、职称、学历、部门、来校时间、人才类别</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 数据能力 -->
-    <section class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">数据能力</h2>
-            <div class="数据-grid">
-                <div class="数据-card">
-                    <div class="数据-number">8</div>
-                    <div class="数据-label">大分布维度</div>
-                    <div class="数据-desc">年龄、性别、学历、职称、学缘、政治面貌、人才、获奖</div>
-                </div>
-                <div class="数据-card">
-                    <div class="数据-number">4</div>
-                    <div class="数据-label">类趋势分析</div>
-                    <div class="数据-desc">在职人数、博士占比、高层次人才、获奖人次</div>
-                </div>
-                <div class="数据-card">
-                    <div class="数据-number">28</div>
-                    <div class="数据-label">学院匿名对比</div>
-                    <div class="数据-desc">全校横向对比，显示排名区间</div>
-                </div>
-                <div class="数据-card">
-                    <div class="数据-number">15+</div>
-                    <div class="数据-label">可视化图表</div>
-                    <div class="数据-desc">柱状图、环形图、折线图、雷达图</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 技术方案 -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">技术方案</h2>
-            <div class="技术-grid">
-                <div class="技术-card">
-                    <div class="技术-icon">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
                         </svg>
                     </div>
-                    <h4>移动端H5</h4>
-                    <p>响应式设计，适配iOS/Android</p>
+                    <h3>总览</h3>
+                    <p>核心KPI、引才质量、编制使用率、退休预测</p>
                 </div>
-                <div class="技术-card">
-                    <div class="技术-icon">
+                <div class="feature-item">
+                    <div class="feature-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
                         </svg>
                     </div>
-                    <h4>数据同步</h4>
-                    <p>每日05:00自动同步人事数据</p>
+                    <h3>分析</h3>
+                    <p>8大分布维度、趋势分析、全校对比</p>
                 </div>
-                <div class="技术-card">
-                    <div class="技术-icon">
+                <div class="feature-item">
+                    <div class="feature-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="16" x2="12" y2="12"></line>
+                            <line x1="12" y1="8" x2="12.01" y2="8"></line>
                         </svg>
                     </div>
-                    <h4>数据安全</h4>
-                    <p>敏感信息脱敏，权限隔离</p>
+                    <h3>洞察</h3>
+                    <p>人才画像、学缘来源、流动指标</p>
                 </div>
-                <div class="技术-card">
-                    <div class="tech-icon">
+                <div class="feature-item">
+                    <div class="feature-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
-                            <path d="M2 17l10 5 10-5"></path>
-                            <path d="M2 12l10 5 10-5"></path>
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                         </svg>
                     </div>
-                    <h4>设计规范</h4>
-                    <p>Premium风格，北大红品牌色</p>
+                    <h3>名单</h3>
+                    <p>人员/人才/获奖筛选查询</p>
                 </div>
             </div>
         </div>
