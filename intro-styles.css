@@ -1,4 +1,4 @@
-/* 全局样式 - 学术风格 */
+/* Premium风格 - 北大红渐变 + 毛玻璃 + 悬停交互 */
 * {
     margin: 0;
     padding: 0;
@@ -8,6 +8,7 @@
 :root {
     --primary: #8C1515;
     --primary-light: #B22222;
+    --primary-gradient: linear-gradient(135deg, #8C1515 0%, #B22222 100%);
     --gray-50: #F9FAFB;
     --gray-100: #F3F4F6;
     --gray-200: #E5E7EB;
@@ -21,10 +22,11 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-    background: #FAFAFA;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(180deg, #FDF2F2 0%, #FFFFFF 50%, #FDF2F2 100%);
     color: var(--gray-800);
-    line-height: 1.7;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
 .container {
@@ -33,15 +35,17 @@ body {
     padding: 0 24px;
 }
 
-/* 导航栏 */
+/* 导航栏（毛玻璃） */
 .nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     height: 56px;
-    background: white;
-    border-bottom: 1px solid var(--gray-200);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -66,51 +70,43 @@ body {
     color: var(--gray-700);
 }
 
-.nav-btn {
-    padding: 6px 16px;
-    background: var(--primary);
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 500;
-}
-
-/* 英雄区（精简学术风） */
+/* 英雄区 */
 .hero {
     padding: 100px 0 60px;
-    background: white;
-    border-bottom: 1px solid var(--gray-200);
+    text-align: center;
 }
 
 .hero-content h1 {
-    font-size: 36px;
+    font-size: 42px;
     font-weight: 700;
     color: var(--gray-900);
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
 }
 
 .hero-subtitle {
-    font-size: 16px;
+    font-size: 18px;
     color: var(--gray-500);
-    margin-bottom: 32px;
+    margin-bottom: 40px;
 }
 
 .hero-stats {
     display: flex;
-    gap: 40px;
-    margin-bottom: 32px;
+    justify-content: center;
+    gap: 48px;
 }
 
 .stat-item {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .stat-value {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 700;
     color: var(--primary);
+    margin-bottom: 4px;
 }
 
 .stat-label {
@@ -118,394 +114,225 @@ body {
     color: var(--gray-500);
 }
 
-.hero-btn {
-    display: inline-block;
-    padding: 10px 24px;
-    background: var(--primary);
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 500;
+/* 手机体验区（全屏） */
+.phone-section {
+    padding: 40px 0 80px;
+    background: linear-gradient(180deg, #1E293B 0%, #0F172A 100%);
+}
+
+.phone-container {
+    display: flex;
+    justify-content: center;
+}
+
+.phone-frame {
+    width: 100%;
+    max-width: 420px;
+    height: 80vh;
+    min-height: 600px;
+    max-height: 900px;
+    background: #1a1a1a;
+    border-radius: 24px;
+    padding: 12px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4);
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.phone-screen iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
 /* 通用Section */
 .section {
-    padding: 60px 0;
+    padding: 80px 0;
 }
 
-.section-gray {
-    background: white;
+.section-alt {
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .section-title {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 700;
     color: var(--gray-900);
-    margin-bottom: 32px;
-    padding-bottom: 12px;
-    border-bottom: 2px solid var(--primary);
-    display: inline-block;
+    text-align: center;
+    margin-bottom: 48px;
+    letter-spacing: -0.3px;
 }
 
-/* 项目概述 */
-.overview-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-}
-
-.overview-card {
-    background: white;
-    border: 1px solid var(--gray-200);
-    border-radius: 8px;
-    padding: 24px;
-}
-
-.overview-card h3 {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--gray-800);
-    margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--gray-100);
-}
-
-.overview-card p {
-    font-size: 14px;
-    color: var(--gray-600);
-    line-height: 1.7;
-}
-
-.overview-card ul {
-    list-style: none;
-}
-
-.overview-card li {
-    font-size: 14px;
-    color: var(--gray-600);
-    padding: 4px 0;
-    padding-left: 16px;
-    position: relative;
-}
-
-.overview-card li::before {
-    content: '·';
-    position: absolute;
-    left: 0;
-    color: var(--primary);
-    font-weight: bold;
-}
-
-/* 核心功能 */
+/* 功能卡片（渐变边框 + 悬停） */
 .功能-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: 24px;
 }
 
 .功能-card {
     background: white;
-    border: 1px solid var(--gray-200);
-    border-radius: 8px;
-    padding: 24px;
+    border-radius: 16px;
+    padding: 32px 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
 }
 
-.功能-header {
+.功能-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--primary-gradient);
+}
+
+.功能-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(140, 21, 21, 0.15);
+}
+
+.功能-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(140, 21, 21, 0.1) 0%, rgba(178, 34, 34, 0.1) 100%);
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-.功能-number {
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--gray-200);
+.功能-icon svg {
+    width: 28px;
+    height: 28px;
+    color: var(--primary);
 }
 
 .功能-card h3 {
     font-size: 18px;
     font-weight: 600;
     color: var(--gray-800);
+    margin-bottom: 12px;
 }
 
-功能-desc,
-.function-desc {
-    font-size: 13px;
+.功能-card p {
+    font-size: 14px;
     color: var(--gray-500);
-    margin-bottom: 16px;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
-.功能-card ul {
-    list-style: none;
-}
-
-.功能-card li {
-    font-size: 13px;
-    color: var(--gray-600);
-    padding: 6px 0;
-    border-bottom: 1px solid var(--gray-100);
-}
-
-.功能-card li:last-child {
-    border-bottom: none;
-}
-
-/* 界面展示（大尺寸） */
-.展示-wrapper {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 40px;
-}
-
-.iphone-frame {
-    width: 380px;
-    height: 780px;
-    background: #1a1a1a;
-    border-radius: 50px;
-    padding: 14px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-    position: relative;
-}
-
-.iphone-notch {
-    position: absolute;
-    top: 14px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 150px;
-    height: 32px;
-    background: #1a1a1a;
-    border-radius: 0 0 18px 18px;
-    z-index: 10;
-}
-
-.iphone-screen {
-    width: 100%;
-    height: 100%;
-    background: white;
-    border-radius: 40px;
-    overflow: hidden;
-}
-
-.iphone-screen iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-.iphone-home {
-    position: absolute;
-    bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 4px;
-    background: #666;
-    border-radius: 2px;
-}
-
-/* 功能说明 */
-.说明-grid {
+/* 数据卡片 */
+.数据-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
 }
 
-.说明-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-}
-
-.说明-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-    background: rgba(140, 21, 21, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.说明-icon svg {
-    color: var(--primary);
-}
-
-.说明-item strong {
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--gray-800);
-    margin-bottom: 4px;
-}
-
-.说明-item p {
-    font-size: 13px;
-    color: var(--gray-500);
-    line-height: 1.5;
-}
-
-/* 数据能力 */
-.数据-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-}
-
 .数据-card {
     background: white;
-    border: 1px solid var(--gray-200);
-    border-radius: 8px;
-    padding: 24px;
+    border-radius: 16px;
+    padding: 32px 24px;
     text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.数据-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
 }
 
 .数据-number {
-    font-size: 36px;
+    font-size: 48px;
     font-weight: 700;
     color: var(--primary);
     margin-bottom: 8px;
+    letter-spacing: -1px;
 }
 
 .数据-label {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--gray-800);
     margin-bottom: 8px;
 }
 
 .数据-desc {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--gray-500);
     line-height: 1.5;
 }
 
-/* 技术方案表格 */
-.技术-table {
-    background: white;
-    border: 1px solid var(--gray-200);
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.技术-table table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.技术-table th,
-.技术-table td {
-    padding: 14px 20px;
-    text-align: left;
-    border-bottom: 1px solid var(--gray-100);
-}
-
-.技术-table th {
-    background: var(--gray-50);
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--gray-600);
-    width: 140px;
-}
-
-.技术-table td {
-    font-size: 14px;
-    color: var(--gray-700);
-}
-
-.技术-table tr:last-child td {
-    border-bottom: none;
-}
-
-/* 项目成果 */
-.成果-grid {
+/* 技术卡片 */
+.技术-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    gap: 24px;
 }
 
-.成果-item {
+.技术-card {
     background: white;
-    border: 1px solid var(--gray-200);
-    border-radius: 8px;
-    padding: 24px;
+    border-radius: 16px;
+    padding: 28px 20px;
     text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
 }
 
-.成果-icon {
-    width: 48px;
-    height: 48px;
+.技术-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+.技术-icon {
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
-    background: rgba(140, 21, 21, 0.1);
+    background: var(--primary-gradient);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 12px;
+    margin: 0 auto 16px;
 }
 
-.成果-icon svg {
-    color: var(--primary);
+.技术-icon svg,
+.tech-icon svg {
+    width: 24px;
+    height: 24px;
+    color: white;
 }
 
-.成果-item h4 {
-    font-size: 14px;
+.tech-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--primary-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+}
+
+.技术-card h4 {
+    font-size: 15px;
     font-weight: 600;
     color: var(--gray-800);
-    margin-bottom: 4px;
-}
-
-.成果-item p {
-    font-size: 12px;
-    color: var(--gray-500);
-}
-
-/* CTA */
-.section-cta {
-    background: var(--primary);
-    color: white;
-    text-align: center;
-    padding: 48px 0;
-}
-
-.section-cta h2 {
-    font-size: 24px;
-    font-weight: 700;
     margin-bottom: 8px;
 }
 
-.section-cta p {
-    font-size: 14px;
-    opacity: 0.9;
-    margin-bottom: 24px;
-}
-
-.cta-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-}
-
-.cta-btn {
-    padding: 10px 24px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 500;
-    text-decoration: none;
-}
-
-.cta-btn.primary {
-    background: white;
-    color: var(--primary);
-}
-
-.cta-btn.secondary {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+.技术-card p {
+    font-size: 13px;
+    color: var(--gray-500);
 }
 
 /* 底部 */
@@ -513,7 +340,7 @@ body {
     background: var(--gray-900);
     color: white;
     text-align: center;
-    padding: 24px;
+    padding: 32px;
 }
 
 .footer p {
@@ -531,22 +358,20 @@ body {
 @media (max-width: 1024px) {
     .功能-grid,
     .数据-grid,
-    .成果-grid,
-    .说明-grid {
+    .技术-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    .overview-grid {
+    .功能-grid,
+    .数据-grid,
+    .技术-grid {
         grid-template-columns: 1fr;
     }
     
-    .功能-grid,
-    .数据-grid,
-    .成果-grid,
-    .说明-grid {
-        grid-template-columns: 1fr;
+    .hero-content h1 {
+        font-size: 32px;
     }
     
     .hero-stats {
@@ -554,8 +379,7 @@ body {
         gap: 24px;
     }
     
-    .iphone-frame {
-        width: 320px;
-        height: 660px;
+    .phone-frame {
+        height: 70vh;
     }
 }
