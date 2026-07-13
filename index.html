@@ -131,6 +131,85 @@
                 </div>
             </div>
 
+            <!-- 引才质量指数 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                        <h3>引才质量指数</h3>
+                    </div>
+                    <span class="score-badge">82分 · 全校第3</span>
+                </div>
+                <div class="quality-grid">
+                    <div class="quality-item">
+                        <div class="quality-value">68%</div>
+                        <div class="quality-label">博士占比</div>
+                    </div>
+                    <div class="quality-item">
+                        <div class="quality-value">32%</div>
+                        <div class="quality-label">海外学缘</div>
+                    </div>
+                    <div class="quality-item">
+                        <div class="quality-value">10%</div>
+                        <div class="quality-label">高层次人才</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 编制使用率 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="8.5" cy="7" r="4"></circle>
+                            <polyline points="17 11 19 13 23 9"></polyline>
+                        </svg>
+                        <h3>编制使用率</h3>
+                    </div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 91.2%"></div>
+                    </div>
+                    <div class="progress-info">
+                        <span class="progress-text">已使用 456人 / 总编制 500人</span>
+                        <span class="progress-percent">91.2%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 退休潮预警 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <h3>退休潮预警</h3>
+                    </div>
+                </div>
+                <div class="retire-grid">
+                    <div class="retire-item">
+                        <div class="retire-value">15人</div>
+                        <div class="retire-label">未来3年预测</div>
+                    </div>
+                    <div class="retire-item warning">
+                        <div class="retire-value">6人</div>
+                        <div class="retire-label">正高退休</div>
+                    </div>
+                    <div class="retire-item highlight">
+                        <div class="retire-value">2028年</div>
+                        <div class="retire-label">退休高峰</div>
+                    </div>
+                </div>
+            </div>
+
             <!-- 人才概况 -->
             <div class="section-card">
                 <div class="section-header">
@@ -160,22 +239,6 @@
                         <div class="talent-count">22</div>
                         <div class="talent-type">青年人才</div>
                     </div>
-                </div>
-            </div>
-
-            <!-- 人员结构 -->
-            <div class="section-card">
-                <div class="section-header">
-                    <div class="section-title">
-                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
-                            <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
-                        </svg>
-                        <h3>人员结构</h3>
-                    </div>
-                </div>
-                <div class="chart-container">
-                    <canvas id="structureChart"></canvas>
                 </div>
             </div>
 
@@ -247,6 +310,171 @@
             <!-- 分析内容区域 -->
             <div id="analysis-content">
                 <!-- 默认显示年龄分布 -->
+            </div>
+
+            <!-- 编制使用率详情 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="8.5" cy="7" r="4"></circle>
+                            <polyline points="17 11 19 13 23 9"></polyline>
+                        </svg>
+                        <h3>编制使用率详情</h3>
+                    </div>
+                </div>
+                <div class="data-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>人员类别</th>
+                                <th>已用/总数</th>
+                                <th>使用率</th>
+                                <th>状态</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>专任教师</td>
+                                <td>250/260</td>
+                                <td>96.2%</td>
+                                <td><span class="status-badge warning">紧张</span></td>
+                            </tr>
+                            <tr>
+                                <td>职员</td>
+                                <td>82/90</td>
+                                <td>91.1%</td>
+                                <td><span class="status-badge success">正常</span></td>
+                            </tr>
+                            <tr>
+                                <td>合同制</td>
+                                <td>89/100</td>
+                                <td>89%</td>
+                                <td><span class="status-badge success">正常</span></td>
+                            </tr>
+                            <tr>
+                                <td>博士后</td>
+                                <td>35/50</td>
+                                <td>70%</td>
+                                <td><span class="status-badge success">正常</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 职称晋升漏斗 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                        </svg>
+                        <h3>职称晋升漏斗（专任教师）</h3>
+                    </div>
+                </div>
+                <div class="funnel-container">
+                    <div class="funnel-item">
+                        <div class="funnel-bar" style="width: 100%"></div>
+                        <div class="funnel-info">
+                            <span class="funnel-label">入职</span>
+                            <span class="funnel-value">234人</span>
+                        </div>
+                    </div>
+                    <div class="funnel-arrow">
+                        <span>↓ 平均3.2年</span>
+                    </div>
+                    <div class="funnel-item">
+                        <div class="funnel-bar" style="width: 70%"></div>
+                        <div class="funnel-info">
+                            <span class="funnel-label">讲师</span>
+                            <span class="funnel-value">89人</span>
+                        </div>
+                    </div>
+                    <div class="funnel-arrow">
+                        <span>↓ 平均4.5年</span>
+                    </div>
+                    <div class="funnel-item">
+                        <div class="funnel-bar" style="width: 55%"></div>
+                        <div class="funnel-info">
+                            <span class="funnel-label">副教授</span>
+                            <span class="funnel-value">78人</span>
+                        </div>
+                    </div>
+                    <div class="funnel-arrow">
+                        <span>↓ 平均6.8年</span>
+                    </div>
+                    <div class="funnel-item">
+                        <div class="funnel-bar" style="width: 45%"></div>
+                        <div class="funnel-info">
+                            <span class="funnel-label">教授</span>
+                            <span class="funnel-value">67人</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="compare-info">
+                    <span>全校平均晋升周期：12.5年</span>
+                    <span class="highlight">本院：11.3年 ✓ 优于全校</span>
+                </div>
+            </div>
+
+            <!-- 学科发展对比 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="3" y1="9" x2="21" y2="9"></line>
+                            <line x1="9" y1="21" x2="9" y2="9"></line>
+                        </svg>
+                        <h3>学科发展对比</h3>
+                    </div>
+                </div>
+                <div class="data-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>学科</th>
+                                <th>专任教师</th>
+                                <th>博士占比</th>
+                                <th>高层次人才</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>经济学</td>
+                                <td>45人</td>
+                                <td>75%</td>
+                                <td>8人</td>
+                            </tr>
+                            <tr>
+                                <td>金融学</td>
+                                <td>38人</td>
+                                <td>82%</td>
+                                <td>12人</td>
+                            </tr>
+                            <tr>
+                                <td>会计学</td>
+                                <td>32人</td>
+                                <td>68%</td>
+                                <td>5人</td>
+                            </tr>
+                            <tr>
+                                <td>管理学</td>
+                                <td>28人</td>
+                                <td>71%</td>
+                                <td>6人</td>
+                            </tr>
+                            <tr>
+                                <td>市场营销</td>
+                                <td>25人</td>
+                                <td class="low">65%</td>
+                                <td>4人</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
 
@@ -326,54 +554,43 @@
                         </div>
                     </div>
                 </div>
-                <div class="warning-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-                        <line x1="12" y1="9" x2="12" y2="13"></line>
-                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                    </svg>
-                    <span>本校学缘占比19.5%，高于全校平均15.2%，建议适当增加外校引才</span>
+                <div class="origin-compare">
+                    <span>本校学缘：19.5%</span>
+                    <span class="compare-separator">|</span>
+                    <span>全校平均：15.2%</span>
                 </div>
             </div>
 
-            <!-- 人员流动健康度 -->
+            <!-- 人员流动指标 -->
             <div class="section-card">
                 <div class="section-header">
                     <div class="section-title">
                         <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
                         </svg>
-                        <h3>人员流动健康度</h3>
+                        <h3>人员流动指标</h3>
                     </div>
                 </div>
                 <div class="health-grid">
                     <div class="health-card">
                         <div class="health-value good">2.1%</div>
-                        <div class="health-label">流失率</div>
+                        <div class="health-label">近三年人员流失率</div>
                         <div class="health-status good">优秀</div>
                     </div>
                     <div class="health-card">
                         <div class="health-value good">8.5年</div>
-                        <div class="health-label">平均在职</div>
+                        <div class="health-label">平均在职年限</div>
                         <div class="health-status good">优秀</div>
                     </div>
                     <div class="health-card">
-                        <div class="health-value warning">15%</div>
-                        <div class="health-label">新鲜度</div>
-                        <div class="health-status warning">良好</div>
+                        <div class="health-value good">15%</div>
+                        <div class="health-label">近三年新进人员占比</div>
+                        <div class="health-status good">良好</div>
                     </div>
-                </div>
-                <div class="warning-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
-                        <line x1="12" y1="9" x2="12" y2="13"></line>
-                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
-                    </svg>
-                    <span>合同制流失率偏高（5.2%），建议关注合同制人员稳定性</span>
                 </div>
             </div>
 
-            <!-- 人才投入产出 -->
+            <!-- 人才获奖产出分析 -->
             <div class="section-card">
                 <div class="section-header">
                     <div class="section-title">
@@ -382,7 +599,7 @@
                             <line x1="12" y1="20" x2="12" y2="4"></line>
                             <line x1="6" y1="20" x2="6" y2="14"></line>
                         </svg>
-                        <h3>人才投入产出</h3>
+                        <h3>人才获奖产出分析</h3>
                     </div>
                 </div>
                 <div class="data-table">
@@ -392,7 +609,7 @@
                                 <th>人才类别</th>
                                 <th>人数</th>
                                 <th>获奖人次</th>
-                                <th>人均</th>
+                                <th>人均获奖</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -418,18 +635,10 @@
                                 <td>青年人才</td>
                                 <td>22</td>
                                 <td>2</td>
-                                <td class="low">0.1</td>
+                                <td>0.1</td>
                             </tr>
                         </tbody>
                     </table>
-                </div>
-                <div class="suggestion-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="12" y1="16" x2="12" y2="12"></line>
-                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
-                    </svg>
-                    <span>青年人才获奖率较低（0.1人次/人），建议加强培养支持力度</span>
                 </div>
             </div>
         </section>

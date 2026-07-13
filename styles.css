@@ -968,3 +968,212 @@ body {
     color: var(--warning);
     font-weight: 600;
 }
+
+/* 引才质量指数 */
+.score-badge {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--primary);
+    background: rgba(140, 21, 21, 0.1);
+    padding: var(--space-1) var(--space-3);
+    border-radius: 20px;
+}
+
+.quality-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+}
+
+.quality-item {
+    text-align: center;
+    padding: var(--space-3);
+    background: var(--gray-50);
+    border-radius: var(--radius-sm);
+}
+
+.quality-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: var(--space-1);
+}
+
+.quality-label {
+    font-size: 12px;
+    color: var(--gray-500);
+}
+
+/* 编制使用率进度条 */
+.progress-container {
+    margin-top: var(--space-2);
+}
+
+.progress-bar {
+    height: 12px;
+    background: var(--gray-100);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: var(--space-2);
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--primary-gradient);
+    border-radius: 6px;
+    transition: width 0.3s ease;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.progress-text {
+    color: var(--gray-600);
+}
+
+.progress-percent {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* 退休潮预警 */
+.retire-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+}
+
+.retire-item {
+    text-align: center;
+    padding: var(--space-3);
+    background: var(--gray-50);
+    border-radius: var(--radius-sm);
+}
+
+.retire-item.warning {
+    background: rgba(217, 119, 6, 0.1);
+}
+
+.retire-item.highlight {
+    background: rgba(220, 38, 38, 0.1);
+}
+
+.retire-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: var(--space-1);
+}
+
+.retire-item.warning .retire-value {
+    color: var(--warning);
+}
+
+.retire-item.highlight .retire-value {
+    color: var(--danger);
+}
+
+.retire-label {
+    font-size: 11px;
+    color: var(--gray-500);
+}
+
+/* 职称晋升漏斗 */
+.funnel-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.funnel-item {
+    width: 100%;
+}
+
+.funnel-bar {
+    height: 24px;
+    background: var(--primary-gradient);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-1);
+}
+
+.funnel-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 0 var(--space-2);
+}
+
+.funnel-label {
+    color: var(--gray-600);
+}
+
+.funnel-value {
+    font-weight: 600;
+    color: var(--gray-800);
+}
+
+.funnel-arrow {
+    font-size: 12px;
+    color: var(--gray-400);
+    padding: var(--space-1) 0;
+}
+
+.compare-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--space-4);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--gray-100);
+    font-size: 13px;
+    color: var(--gray-600);
+}
+
+.compare-info .highlight {
+    color: var(--success);
+    font-weight: 600;
+}
+
+/* 学缘对比 */
+.origin-compare {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+    padding: var(--space-3);
+    background: var(--gray-50);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    color: var(--gray-600);
+}
+
+.compare-separator {
+    color: var(--gray-300);
+}
+
+/* 状态徽章 */
+.status-badge {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.status-badge.success {
+    background: rgba(22, 163, 74, 0.1);
+    color: var(--success);
+}
+
+.status-badge.warning {
+    background: rgba(217, 119, 6, 0.1);
+    color: var(--warning);
+}
+
+.status-badge.danger {
+    background: rgba(220, 38, 38, 0.1);
+    color: var(--danger);
+}
