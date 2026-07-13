@@ -784,3 +784,187 @@ body {
     background: var(--gray-300);
     border-radius: 2px;
 }
+
+/* 洞察页面样式 */
+
+/* 标签云 */
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    justify-content: center;
+}
+
+.tag-item {
+    padding: var(--space-2) var(--space-3);
+    border-radius: 20px;
+    font-weight: 500;
+    background: var(--gray-100);
+    color: var(--gray-700);
+    transition: all 0.2s ease;
+}
+
+.tag-item:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.tag-item.large {
+    font-size: 15px;
+    padding: var(--space-3) var(--space-4);
+    background: rgba(140, 21, 21, 0.1);
+    color: var(--primary);
+}
+
+.tag-item.medium {
+    font-size: 13px;
+    background: var(--gray-100);
+    color: var(--gray-700);
+}
+
+.tag-item.small {
+    font-size: 12px;
+    color: var(--gray-600);
+}
+
+/* 学术谱系 */
+.origin-tree {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.origin-item {
+    position: relative;
+}
+
+.origin-bar {
+    height: 8px;
+    background: var(--primary-gradient);
+    border-radius: 4px;
+    margin-bottom: var(--space-1);
+}
+
+.origin-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.origin-name {
+    color: var(--gray-700);
+    font-weight: 500;
+}
+
+.origin-count {
+    color: var(--gray-500);
+}
+
+/* 警告和建议框 */
+.warning-box,
+.suggestion-box {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    border-radius: var(--radius-sm);
+    margin-top: var(--space-4);
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.warning-box {
+    background: rgba(217, 119, 6, 0.1);
+    color: var(--warning);
+}
+
+.warning-box svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.suggestion-box {
+    background: rgba(59, 130, 246, 0.1);
+    color: #3B82F6;
+}
+
+.suggestion-box svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* 流动健康度 */
+.health-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+}
+
+.health-card {
+    text-align: center;
+    padding: var(--space-4);
+    background: var(--gray-50);
+    border-radius: var(--radius-md);
+}
+
+.health-value {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: var(--space-1);
+}
+
+.health-value.good {
+    color: var(--success);
+}
+
+.health-value.warning {
+    color: var(--warning);
+}
+
+.health-value.danger {
+    color: var(--danger);
+}
+
+.health-label {
+    font-size: 12px;
+    color: var(--gray-500);
+    margin-bottom: var(--space-2);
+}
+
+.health-status {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.health-status.good {
+    background: rgba(22, 163, 74, 0.1);
+    color: var(--success);
+}
+
+.health-status.warning {
+    background: rgba(217, 119, 6, 0.1);
+    color: var(--warning);
+}
+
+.health-status.danger {
+    background: rgba(220, 38, 38, 0.1);
+    color: var(--danger);
+}
+
+/* 表格高亮 */
+.highlight {
+    color: var(--success);
+    font-weight: 600;
+}
+
+.low {
+    color: var(--warning);
+    font-weight: 600;
+}
