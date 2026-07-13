@@ -422,7 +422,7 @@ function showAnalysisTab(tab) {
     const configs = {
         age: {
             title: '年龄分布',
-            summary: { value: '42.5', label: '平均年龄', rank: '第5/28' },
+            summary: { value: '42.5', label: '平均年龄', rank: '第5/多学院' },
             chartType: 'bar',
             chartData: {
                 labels: ['35岁以下', '36-45岁', '46-55岁', '55岁以上'],
@@ -446,7 +446,7 @@ function showAnalysisTab(tab) {
         },
         gender: {
             title: '性别分布',
-            summary: { value: '1.2:1', label: '男女比例', rank: '第8/28' },
+            summary: { value: '1.2:1', label: '男女比例', rank: '第8/多学院' },
             chartType: 'doughnut',
             chartData: {
                 labels: ['男性', '女性'],
@@ -463,7 +463,7 @@ function showAnalysisTab(tab) {
         },
         education: {
             title: '学历结构',
-            summary: { value: '68%', label: '博士占比', rank: '第3/28' },
+            summary: { value: '68%', label: '博士占比', rank: '第3/多学院' },
             chartType: 'doughnut',
             chartData: {
                 labels: ['博士', '硕士', '本科及以下'],
@@ -481,7 +481,7 @@ function showAnalysisTab(tab) {
         },
         title: {
             title: '职称结构',
-            summary: { value: '45%', label: '高级职称占比', rank: '第4/28' },
+            summary: { value: '45%', label: '高级职称占比', rank: '第4/多学院' },
             chartType: 'bar',
             chartData: {
                 labels: ['正高', '副高', '中级', '初级'],
@@ -501,7 +501,7 @@ function showAnalysisTab(tab) {
         },
         origin: {
             title: '学缘结构',
-            summary: { value: '32%', label: '海外学缘占比', rank: '第2/28' },
+            summary: { value: '32%', label: '海外学缘占比', rank: '第2/多学院' },
             chartType: 'doughnut',
             chartData: {
                 labels: ['本校学缘', '国内学缘', '海外学缘'],
@@ -519,7 +519,7 @@ function showAnalysisTab(tab) {
         },
         political: {
             title: '政治面貌',
-            summary: { value: '58%', label: '党员占比', rank: '第6/28' },
+            summary: { value: '58%', label: '党员占比', rank: '第6/多学院' },
             chartType: 'doughnut',
             chartData: {
                 labels: ['中共党员', '民主党派', '群众'],
@@ -537,7 +537,7 @@ function showAnalysisTab(tab) {
         },
         talent: {
             title: '人才分布',
-            summary: { value: '45', label: '人才总数', rank: '第2/28' },
+            summary: { value: '45', label: '人才总数', rank: '第2/多学院' },
             chartType: 'bar',
             chartData: {
                 labels: ['院士', '长江学者', '杰青', '青年人才'],
@@ -557,7 +557,7 @@ function showAnalysisTab(tab) {
         },
         award: {
             title: '获奖分析',
-            summary: { value: '28', label: '本年获奖人次', rank: '第3/28' },
+            summary: { value: '28', label: '本年获奖人次', rank: '第3/多学院' },
             chartType: 'doughnut',
             chartData: {
                 labels: ['国家级', '省部级', '校级'],
@@ -1063,7 +1063,7 @@ function showQualityInfo() {
             </div>
             <div class="detail-row">
                 <span class="detail-label">排名依据</span>
-                <span class="detail-value">全校28个学院对比</span>
+                <span class="detail-value">多学院横向对比</span>
             </div>
         </div>
         <div style="padding: 12px; background: #F9FAFB; border-radius: 8px; font-size: 13px; color: #6B7280;">
