@@ -113,6 +113,63 @@ function initCharts() {
             }
         });
     }
+    
+    // 全校对比雷达图
+    const radarCtx = document.getElementById('radarChart');
+    if (radarCtx) {
+        new Chart(radarCtx.getContext('2d'), {
+            type: 'radar',
+            data: {
+                labels: ['博士占比', '海外学缘', '高层次人才', '平均年龄', '职称结构', '学缘多样性'],
+                datasets: [
+                    {
+                        label: '本院',
+                        data: [68, 32, 10, 42.5, 45, 75],
+                        backgroundColor: 'rgba(140, 21, 21, 0.2)',
+                        borderColor: '#8C1515',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#8C1515',
+                    },
+                    {
+                        label: '全校平均',
+                        data: [55, 25, 8, 45, 40, 70],
+                        backgroundColor: 'rgba(156, 163, 175, 0.2)',
+                        borderColor: '#9CA3AF',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#9CA3AF',
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 12,
+                            usePointStyle: true,
+                            pointStyle: 'circle',
+                            font: { size: 12 }
+                        }
+                    }
+                },
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            stepSize: 20,
+                            font: { size: 10 }
+                        },
+                        pointLabels: {
+                            font: { size: 11 }
+                        }
+                    }
+                }
+            }
+        });
+    }
 }
 
 // 初始化分析内容
@@ -333,6 +390,20 @@ function showAnalysisTab(tab) {
                 </tbody>
             </table>
         </div>
+        ${tab === 'age' ? `
+        <div class="age-alert-grid">
+            <div class="age-alert-item">
+                <div class="age-alert-label">35岁以下占比</div>
+                <div class="age-alert-value">21.5%</div>
+                <div class="age-alert-status good">健康</div>
+            </div>
+            <div class="age-alert-item">
+                <div class="age-alert-label">55岁以上占比</div>
+                <div class="age-alert-value">13.2%</div>
+                <div class="age-alert-status good">正常</div>
+            </div>
+        </div>
+        ` : ''}
     `;
     
     // 初始化图表

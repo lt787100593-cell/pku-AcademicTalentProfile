@@ -244,6 +244,49 @@
                 </div>
             </div>
 
+            <!-- 近期动态 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <h3>近期动态</h3>
+                    </div>
+                </div>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-dot green"></div>
+                        <div class="activity-content">
+                            <div class="activity-text"><strong>张明</strong> 入职经济学系</div>
+                            <div class="activity-time">2024-12-10</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot red"></div>
+                        <div class="activity-content">
+                            <div class="activity-text"><strong>王华</strong> 获国家自然科学奖</div>
+                            <div class="activity-time">2024-12-15</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot blue"></div>
+                        <div class="activity-content">
+                            <div class="activity-text"><strong>李明</strong> 晋升副教授</div>
+                            <div class="activity-time">2024-11-20</div>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <div class="activity-dot green"></div>
+                        <div class="activity-content">
+                            <div class="activity-text"><strong>赵强</strong> 入职金融学系</div>
+                            <div class="activity-time">2024-11-15</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- 人才概况 -->
             <div class="section-card">
                 <div class="section-header">
@@ -339,11 +382,40 @@
                         <option value="postdoc">博士后</option>
                     </select>
                 </div>
+                <div class="filter-select">
+                    <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <select id="time-range-filter">
+                        <option value="all">全部时间</option>
+                        <option value="1year">近1年</option>
+                        <option value="3year">近3年</option>
+                        <option value="5year">近5年</option>
+                    </select>
+                </div>
             </div>
 
             <!-- 分析内容区域 -->
             <div id="analysis-content">
                 <!-- 默认显示年龄分布 -->
+            </div>
+
+            <!-- 全校对比雷达图 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                        </svg>
+                        <h3>全校对比</h3>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="radarChart"></canvas>
+                </div>
             </div>
 
             <!-- 学科发展对比 -->

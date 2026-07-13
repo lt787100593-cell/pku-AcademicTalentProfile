@@ -1422,3 +1422,118 @@ body {
     font-size: 13px;
     color: var(--gray-600);
 }
+
+/* 近期动态样式 */
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+}
+
+.activity-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+}
+
+.activity-dot.green {
+    background: var(--success);
+}
+
+.activity-dot.red {
+    background: var(--danger);
+}
+
+.activity-dot.blue {
+    background: #3B82F6;
+}
+
+.activity-content {
+    flex: 1;
+}
+
+.activity-text {
+    font-size: 14px;
+    color: var(--gray-700);
+    margin-bottom: 2px;
+}
+
+.activity-text strong {
+    color: var(--gray-800);
+    font-weight: 600;
+}
+
+.activity-time {
+    font-size: 12px;
+    color: var(--gray-400);
+}
+
+/* 年龄结构预警 */
+.age-alert-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+}
+
+.age-alert-item {
+    text-align: center;
+    padding: var(--space-3);
+    background: var(--gray-50);
+    border-radius: var(--radius-sm);
+}
+
+.age-alert-label {
+    font-size: 12px;
+    color: var(--gray-500);
+    margin-bottom: var(--space-1);
+}
+
+.age-alert-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: var(--space-1);
+}
+
+.age-alert-status {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.age-alert-status.good {
+    background: rgba(22, 163, 74, 0.1);
+    color: var(--success);
+}
+
+.age-alert-status.warning {
+    background: rgba(217, 119, 6, 0.1);
+    color: var(--warning);
+}
+
+.age-alert-status.danger {
+    background: rgba(220, 38, 38, 0.1);
+    color: var(--danger);
+}
+
+/* 筛选器样式更新 */
+.filter-bar {
+    display: flex;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+.filter-select {
+    flex: 1;
+}
