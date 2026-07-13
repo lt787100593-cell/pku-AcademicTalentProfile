@@ -1273,3 +1273,79 @@ body {
     background: rgba(22, 163, 74, 0.1);
     color: var(--success);
 }
+
+/* 获奖列表样式 */
+.award-list {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.award-item-card {
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.award-item-card:last-child {
+    border-bottom: none;
+}
+
+.award-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-2);
+}
+
+.award-level {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.award-level.level-national {
+    background: rgba(140, 21, 21, 0.1);
+    color: var(--primary);
+}
+
+.award-level.level-provincial {
+    background: rgba(217, 119, 6, 0.1);
+    color: var(--warning);
+}
+
+.award-level.level-school {
+    background: rgba(22, 163, 74, 0.1);
+    color: var(--success);
+}
+
+.award-date {
+    font-size: 12px;
+    color: var(--gray-400);
+}
+
+.award-item-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: var(--space-1);
+}
+
+.award-project {
+    font-size: 13px;
+    color: var(--gray-600);
+    margin-bottom: var(--space-2);
+}
+
+.award-person {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: 13px;
+    color: var(--gray-500);
+}
+
+.award-person svg {
+    color: var(--gray-400);
+}

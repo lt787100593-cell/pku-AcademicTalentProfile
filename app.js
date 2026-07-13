@@ -17,6 +17,19 @@ const mockData = {
         { id: 14, name: '林峰', title: '教授', education: '博士', category: 'teacher', department: '经济学系', joinDate: '1990', talent: '院士', award: '国家级' },
         { id: 15, name: '何华', title: '副教授', education: '硕士', category: 'teacher', department: '会计学系', joinDate: '1995', talent: null, award: '省部级' },
     ],
+    // 获奖记录
+    awards: [
+        { id: 1, personName: '林峰', awardName: '国家自然科学奖', projectName: '中国经济增长质量研究', awardDate: '2024-12-15', awardLevel: '国家级' },
+        { id: 2, personName: '马骏', awardName: '教育部人文社科奖', projectName: '金融市场风险管理', awardDate: '2024-11-20', awardLevel: '国家级' },
+        { id: 3, personName: '陈静', awardName: '北京市哲学社科奖', projectName: '企业战略管理创新', awardDate: '2024-10-08', awardLevel: '省部级' },
+        { id: 4, personName: '高洁', awardName: '北京大学教学成果奖', projectName: '金融学课程体系改革', awardDate: '2024-09-10', awardLevel: '校级' },
+        { id: 5, personName: '李明', awardName: '中国经济学奖', projectName: '数字经济与产业转型', awardDate: '2024-08-25', awardLevel: '省部级' },
+        { id: 6, personName: '何华', awardName: '北京市优秀教师', projectName: '', awardDate: '2024-07-18', awardLevel: '省部级' },
+        { id: 7, personName: '孙丽', awardName: '北京大学优秀教育工作者', projectName: '', awardDate: '2024-06-30', awardLevel: '校级' },
+        { id: 8, personName: '林峰', awardName: '孙冶方经济科学奖', projectName: '中国经济发展新动能', awardDate: '2024-05-12', awardLevel: '国家级' },
+        { id: 9, personName: '马骏', awardName: '教育部科技进步奖', projectName: '金融科技风险预警系统', awardDate: '2024-04-08', awardLevel: '国家级' },
+        { id: 10, personName: '陈静', awardName: '北京市优秀成果奖', projectName: '企业管理现代化研究', awardDate: '2024-03-15', awardLevel: '省部级' },
+    ],
 };
 
 // 当前状态
@@ -359,6 +372,37 @@ function renderPersonList(persons) {
     `).join('');
 }
 
+// 渲染获奖列表
+function renderAwardList(awards) {
+    const container = document.getElementById('award-list');
+    if (!container) return;
+    
+    // 获取级别对应的颜色
+    const getLevelClass = (level) => {
+        if (level === '国家级') return 'level-national';
+        if (level === '省部级') return 'level-provincial';
+        return 'level-school';
+    };
+    
+    container.innerHTML = awards.map(award => `
+        <div class="award-item-card">
+            <div class="award-item-header">
+                <span class="award-level ${getLevelClass(award.awardLevel)}">${award.awardLevel}</span>
+                <span class="award-date">${award.awardDate}</span>
+            </div>
+            <div class="award-item-name">${award.awardName}</div>
+            ${award.projectName ? `<div class="award-project">${award.projectName}</div>` : ''}
+            <div class="award-person">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span>${award.personName}</span>
+            </div>
+        </div>
+    `).join('');
+}
+
 // 初始化事件监听
 function initEventListeners() {
     // 搜索框
@@ -392,13 +436,35 @@ function initEventListeners() {
 function filterPersonList() {
     const keyword = document.getElementById('search-input')?.value.toLowerCase() || '';
     
+    const personList = document.getElementById('person-list');
+    const awardList = document.getElementById('award-list');
+    
+    // 获奖类型显示获奖列表
+    if (currentType === 'award') {
+        personList.style.display = 'none';
+        awardList.style.display = 'block';
+        
+        let filteredAwards = mockData.awards;
+        if (keyword) {
+            filteredAwards = filteredAwards.filter(a => 
+                a.personName.toLowerCase().includes(keyword) ||
+                a.awardName.toLowerCase().includes(keyword) ||
+                a.projectName.toLowerCase().includes(keyword)
+            );
+        }
+        renderAwardList(filteredAwards);
+        return;
+    }
+    
+    // 其他类型显示人员列表
+    personList.style.display = 'block';
+    awardList.style.display = 'none';
+    
     let filtered = mockData.persons;
     
     // 按类型筛选
     if (currentType === 'talent') {
         filtered = filtered.filter(p => p.talent);
-    } else if (currentType === 'award') {
-        filtered = filtered.filter(p => p.award);
     } else if (currentType === 'person') {
         filtered = filtered.filter(p => !p.talent && !p.award);
     }
