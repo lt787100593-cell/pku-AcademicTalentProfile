@@ -731,7 +731,16 @@ function showAwardDetail(personName) {
     title.textContent = person.name + ' - 详情';
     body.innerHTML = `
         <div class="detail-card">
-            <div class="detail-section-title">📋 人事信息</div>
+            <div class="detail-section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16" style="vertical-align: middle; margin-right: 4px;">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                人事信息
+            </div>
             <div class="detail-row">
                 <span class="detail-label">姓名</span>
                 <span class="detail-value">${person.name}</span>
@@ -761,7 +770,13 @@ function showAwardDetail(personName) {
         </div>
         
         <div class="detail-card">
-            <div class="detail-section-title">🏆 获奖明细（${awards.length}项）</div>
+            <div class="detail-section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16" style="vertical-align: middle; margin-right: 4px;">
+                    <circle cx="12" cy="8" r="7"></circle>
+                    <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                </svg>
+                获奖明细（${awards.length}项）
+            </div>
             ${awards.map(award => `
                 <div class="award-detail-item">
                     <div class="award-detail-header">
