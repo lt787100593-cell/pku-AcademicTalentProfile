@@ -896,14 +896,16 @@ function switchTab(tab, subType) {
     });
     document.getElementById(`page-${tab}`).classList.add('active');
     
-    // 更新导航状态
+    // 更新导航状态（通过tab名称匹配）
     document.querySelectorAll('.nav-item').forEach(item => {
         item.classList.remove('active');
+        if (item.getAttribute('onclick')?.includes(`'${tab}'`)) {
+            item.classList.add('active');
+        }
     });
-    event?.currentTarget?.classList?.add('active');
     
     // 切换Tab后滚动到顶部
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo(0, 0);
     
     // 如果有子类型，更新筛选
     if (subType && tab === 'list') {
