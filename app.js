@@ -426,7 +426,11 @@ function showAnalysisTab(tab) {
                 { label: '36-45岁', value: 156, percent: '34.2%' },
                 { label: '46-55岁', value: 142, percent: '31.1%' },
                 { label: '55岁以上', value: 60, percent: '13.2%' },
-            ]
+            ],
+            extraInfo: {
+                alert1: { label: '35岁以下占比', value: '21.5%', status: 'good', statusText: '健康' },
+                alert2: { label: '55岁以上占比', value: '13.2%', status: 'good', statusText: '正常' }
+            }
         },
         gender: {
             title: '性别分布',

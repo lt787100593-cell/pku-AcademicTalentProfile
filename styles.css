@@ -165,7 +165,7 @@ body {
 /* 主内容区域 */
 .main-content {
     margin-top: 56px;
-    margin-bottom: 64px;
+    margin-bottom: 120px;
     padding: var(--space-4);
     min-height: calc(100vh - 120px);
 }
@@ -313,7 +313,7 @@ body {
     border-radius: var(--radius-lg);
     padding: var(--space-4);
     box-shadow: var(--shadow-md);
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-6);
 }
 
 .section-header {
@@ -1582,6 +1582,21 @@ body {
     color: var(--danger);
 }
 
+/* 底部数据更新时间 */
+.footer {
+    position: fixed;
+    bottom: 64px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: var(--space-2) var(--space-4);
+    background: var(--surface);
+    border-top: 1px solid var(--gray-100);
+    font-size: 11px;
+    color: var(--gray-400);
+    z-index: 90;
+}
+
 /* 筛选器样式更新 */
 .filter-bar {
     display: flex;
@@ -1595,7 +1610,7 @@ body {
 
 /* 分析页面分割标识 */
 .analysis-section {
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-6);
 }
 
 .section-divider {
