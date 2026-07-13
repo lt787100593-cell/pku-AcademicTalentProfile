@@ -17,19 +17,44 @@ const mockData = {
         { id: 14, name: '林峰', title: '教授', education: '博士', category: 'teacher', department: '经济学系', joinDate: '1990', talent: '院士', award: '国家级' },
         { id: 15, name: '何华', title: '副教授', education: '硕士', category: 'teacher', department: '会计学系', joinDate: '1995', talent: null, award: '省部级' },
     ],
-    // 获奖记录
-    awards: [
-        { id: 1, personName: '林峰', awardName: '国家自然科学奖', projectName: '中国经济增长质量研究', awardDate: '2024-12-15', awardLevel: '国家级' },
-        { id: 2, personName: '马骏', awardName: '教育部人文社科奖', projectName: '金融市场风险管理', awardDate: '2024-11-20', awardLevel: '国家级' },
-        { id: 3, personName: '陈静', awardName: '北京市哲学社科奖', projectName: '企业战略管理创新', awardDate: '2024-10-08', awardLevel: '省部级' },
-        { id: 4, personName: '高洁', awardName: '北京大学教学成果奖', projectName: '金融学课程体系改革', awardDate: '2024-09-10', awardLevel: '校级' },
-        { id: 5, personName: '李明', awardName: '中国经济学奖', projectName: '数字经济与产业转型', awardDate: '2024-08-25', awardLevel: '省部级' },
-        { id: 6, personName: '何华', awardName: '北京市优秀教师', projectName: '', awardDate: '2024-07-18', awardLevel: '省部级' },
-        { id: 7, personName: '孙丽', awardName: '北京大学优秀教育工作者', projectName: '', awardDate: '2024-06-30', awardLevel: '校级' },
-        { id: 8, personName: '林峰', awardName: '孙冶方经济科学奖', projectName: '中国经济发展新动能', awardDate: '2024-05-12', awardLevel: '国家级' },
-        { id: 9, personName: '马骏', awardName: '教育部科技进步奖', projectName: '金融科技风险预警系统', awardDate: '2024-04-08', awardLevel: '国家级' },
-        { id: 10, personName: '陈静', awardName: '北京市优秀成果奖', projectName: '企业管理现代化研究', awardDate: '2024-03-15', awardLevel: '省部级' },
+    // 获奖人员列表（按最近获奖时间倒序）
+    awardPersons: [
+        { id: 14, name: '林峰', title: '教授', education: '博士', department: '经济学系', joinDate: '1990', talent: '院士', latestAwardLevel: '国家级', latestAwardDate: '2024-12-15' },
+        { id: 12, name: '马骏', title: '教授', education: '博士', department: '金融学系', joinDate: '2000', talent: '长江学者', latestAwardLevel: '国家级', latestAwardDate: '2024-11-20' },
+        { id: 5, name: '陈静', title: '教授', education: '博士', department: '战略管理系', joinDate: '2002', talent: '杰青', latestAwardLevel: '省部级', latestAwardDate: '2024-10-08' },
+        { id: 13, name: '高洁', title: '教授', education: '博士', department: '战略管理系', joinDate: '2003', talent: '杰青', latestAwardLevel: '校级', latestAwardDate: '2024-09-10' },
+        { id: 2, name: '李明', title: '副教授', education: '博士', department: '金融学系', joinDate: '2010', talent: null, latestAwardLevel: '省部级', latestAwardDate: '2024-08-25' },
+        { id: 15, name: '何华', title: '副教授', education: '硕士', department: '会计学系', joinDate: '1995', talent: null, latestAwardLevel: '省部级', latestAwardDate: '2024-07-18' },
+        { id: 7, name: '孙丽', title: '会计师', education: '本科', department: '财务室', joinDate: '2012', talent: null, latestAwardLevel: '校级', latestAwardDate: '2024-06-30' },
     ],
+    // 获奖明细（按人员分组）
+    awardDetails: {
+        '林峰': [
+            { awardName: '国家自然科学奖', projectName: '中国经济增长质量研究', awardDate: '2024-12-15', awardLevel: '国家级' },
+            { awardName: '孙冶方经济科学奖', projectName: '中国经济发展新动能', awardDate: '2024-05-12', awardLevel: '国家级' },
+            { awardName: '教育部科技进步奖', projectName: '数字经济创新研究', awardDate: '2023-11-08', awardLevel: '国家级' },
+        ],
+        '马骏': [
+            { awardName: '教育部人文社科奖', projectName: '金融市场风险管理', awardDate: '2024-11-20', awardLevel: '国家级' },
+            { awardName: '教育部科技进步奖', projectName: '金融科技风险预警系统', awardDate: '2024-04-08', awardLevel: '国家级' },
+        ],
+        '陈静': [
+            { awardName: '北京市哲学社科奖', projectName: '企业战略管理创新', awardDate: '2024-10-08', awardLevel: '省部级' },
+            { awardName: '北京市优秀成果奖', projectName: '企业管理现代化研究', awardDate: '2024-03-15', awardLevel: '省部级' },
+        ],
+        '高洁': [
+            { awardName: '北京大学教学成果奖', projectName: '金融学课程体系改革', awardDate: '2024-09-10', awardLevel: '校级' },
+        ],
+        '李明': [
+            { awardName: '中国经济学奖', projectName: '数字经济与产业转型', awardDate: '2024-08-25', awardLevel: '省部级' },
+        ],
+        '何华': [
+            { awardName: '北京市优秀教师', projectName: '', awardDate: '2024-07-18', awardLevel: '省部级' },
+        ],
+        '孙丽': [
+            { awardName: '北京大学优秀教育工作者', projectName: '', awardDate: '2024-06-30', awardLevel: '校级' },
+        ],
+    },
 };
 
 // 当前状态
@@ -372,35 +397,99 @@ function renderPersonList(persons) {
     `).join('');
 }
 
-// 渲染获奖列表
-function renderAwardList(awards) {
+// 渲染获奖人员列表
+function renderAwardList(persons) {
     const container = document.getElementById('award-list');
     if (!container) return;
     
-    // 获取级别对应的颜色
+    // 获取级别对应的颜色类
     const getLevelClass = (level) => {
         if (level === '国家级') return 'level-national';
         if (level === '省部级') return 'level-provincial';
         return 'level-school';
     };
     
-    container.innerHTML = awards.map(award => `
-        <div class="award-item-card">
-            <div class="award-item-header">
-                <span class="award-level ${getLevelClass(award.awardLevel)}">${award.awardLevel}</span>
-                <span class="award-date">${award.awardDate}</span>
-            </div>
-            <div class="award-item-name">${award.awardName}</div>
-            ${award.projectName ? `<div class="award-project">${award.projectName}</div>` : ''}
-            <div class="award-person">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-                <span>${award.personName}</span>
+    container.innerHTML = persons.map(person => `
+        <div class="person-item" onclick="showAwardDetail('${person.name}')">
+            <div class="person-avatar">${person.name.charAt(0)}</div>
+            <div class="person-info">
+                <div class="person-name">
+                    ${person.name}
+                    <span class="award-level-badge ${getLevelClass(person.latestAwardLevel)}">${person.latestAwardLevel}</span>
+                </div>
+                <div class="person-detail">${person.title} · ${person.education} · ${person.department}</div>
+                <div class="award-date-info">最近获奖：${person.latestAwardDate}</div>
             </div>
         </div>
     `).join('');
+}
+
+// 显示获奖人员详情
+function showAwardDetail(personName) {
+    const person = mockData.awardPersons.find(p => p.name === personName);
+    const awards = mockData.awardDetails[personName] || [];
+    
+    if (!person) return;
+    
+    const modal = document.getElementById('detail-modal');
+    const title = document.getElementById('modal-title');
+    const body = document.getElementById('modal-body');
+    
+    // 获取级别对应的颜色类
+    const getLevelClass = (level) => {
+        if (level === '国家级') return 'level-national';
+        if (level === '省部级') return 'level-provincial';
+        return 'level-school';
+    };
+    
+    title.textContent = person.name + ' - 详情';
+    body.innerHTML = `
+        <div class="detail-card">
+            <div class="detail-section-title">📋 人事信息</div>
+            <div class="detail-row">
+                <span class="detail-label">姓名</span>
+                <span class="detail-value">${person.name}</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">职称</span>
+                <span class="detail-value">${person.title}</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">学历</span>
+                <span class="detail-value">${person.education}</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">部门</span>
+                <span class="detail-value">${person.department}</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">来校时间</span>
+                <span class="detail-value">${person.joinDate}年</span>
+            </div>
+            ${person.talent ? `
+            <div class="detail-row">
+                <span class="detail-label">人才类别</span>
+                <span class="detail-value">${person.talent}</span>
+            </div>
+            ` : ''}
+        </div>
+        
+        <div class="detail-card">
+            <div class="detail-section-title">🏆 获奖明细（${awards.length}项）</div>
+            ${awards.map(award => `
+                <div class="award-detail-item">
+                    <div class="award-detail-header">
+                        <span class="award-level-badge ${getLevelClass(award.awardLevel)}">${award.awardLevel}</span>
+                        <span class="award-detail-date">${award.awardDate}</span>
+                    </div>
+                    <div class="award-detail-name">${award.awardName}</div>
+                    ${award.projectName ? `<div class="award-detail-project">${award.projectName}</div>` : ''}
+                </div>
+            `).join('')}
+        </div>
+    `;
+    
+    modal.classList.add('active');
 }
 
 // 初始化事件监听
@@ -439,20 +528,19 @@ function filterPersonList() {
     const personList = document.getElementById('person-list');
     const awardList = document.getElementById('award-list');
     
-    // 获奖类型显示获奖列表
+    // 获奖类型显示获奖人员列表
     if (currentType === 'award') {
         personList.style.display = 'none';
         awardList.style.display = 'block';
         
-        let filteredAwards = mockData.awards;
+        let filteredAwardPersons = mockData.awardPersons;
         if (keyword) {
-            filteredAwards = filteredAwards.filter(a => 
-                a.personName.toLowerCase().includes(keyword) ||
-                a.awardName.toLowerCase().includes(keyword) ||
-                a.projectName.toLowerCase().includes(keyword)
+            filteredAwardPersons = filteredAwardPersons.filter(p => 
+                p.name.toLowerCase().includes(keyword) ||
+                p.department.toLowerCase().includes(keyword)
             );
         }
-        renderAwardList(filteredAwards);
+        renderAwardList(filteredAwardPersons);
         return;
     }
     
@@ -466,7 +554,7 @@ function filterPersonList() {
     if (currentType === 'talent') {
         filtered = filtered.filter(p => p.talent);
     } else if (currentType === 'person') {
-        filtered = filtered.filter(p => !p.talent && !p.award);
+        filtered = filtered.filter(p => !p.talent);
     }
     
     // 按关键词搜索

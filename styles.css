@@ -1349,3 +1349,76 @@ body {
 .award-person svg {
     color: var(--gray-400);
 }
+
+/* 获奖人员列表样式 */
+.award-level-badge {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 1px 6px;
+    border-radius: 8px;
+    margin-left: var(--space-2);
+}
+
+.award-level-badge.level-national {
+    background: rgba(140, 21, 21, 0.1);
+    color: var(--primary);
+}
+
+.award-level-badge.level-provincial {
+    background: rgba(217, 119, 6, 0.1);
+    color: var(--warning);
+}
+
+.award-level-badge.level-school {
+    background: rgba(22, 163, 74, 0.1);
+    color: var(--success);
+}
+
+.award-date-info {
+    font-size: 12px;
+    color: var(--gray-400);
+    margin-top: 2px;
+}
+
+/* 获奖详情样式 */
+.detail-section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: var(--space-3);
+}
+
+.award-detail-item {
+    padding: var(--space-3);
+    background: var(--gray-50);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-2);
+}
+
+.award-detail-item:last-child {
+    margin-bottom: 0;
+}
+
+.award-detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-2);
+}
+
+.award-detail-date {
+    font-size: 12px;
+    color: var(--gray-400);
+}
+
+.award-detail-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: var(--space-1);
+}
+
+.award-detail-project {
+    font-size: 13px;
+    color: var(--gray-600);
+}
