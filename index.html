@@ -323,52 +323,64 @@
 
         <!-- 分析页面 -->
         <section id="page-analysis" class="page">
-            <!-- 维度切换Tab -->
-            <div class="analysis-tabs">
-                <div class="tab-scroll">
-                    <span class="tab-item active" data-tab="age">年龄</span>
-                    <span class="tab-item" data-tab="gender">性别</span>
-                    <span class="tab-item" data-tab="education">学历</span>
-                    <span class="tab-item" data-tab="title">职称</span>
-                    <span class="tab-item" data-tab="origin">学缘</span>
-                    <span class="tab-item" data-tab="political">政治</span>
-                    <span class="tab-item" data-tab="talent">人才</span>
-                    <span class="tab-item" data-tab="award">获奖</span>
-                </div>
-            </div>
-
-            <!-- 筛选器 -->
-            <div class="filter-bar">
-                <div class="filter-select">
-                    <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
-                    </svg>
-                    <select id="analysis-filter">
-                        <option value="all">全部人员</option>
-                        <option value="teacher">专任教师</option>
-                        <option value="staff">职员</option>
-                        <option value="contract">合同制</option>
-                        <option value="postdoc">博士后</option>
-                    </select>
-                </div>
-                <div class="filter-select">
-                    <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                        <line x1="16" y1="2" x2="16" y2="6"></line>
-                        <line x1="8" y1="2" x2="8" y2="6"></line>
-                        <line x1="3" y1="10" x2="21" y2="10"></line>
-                    </svg>
-                    <select id="time-range-filter">
-                        <option value="all">全部时间</option>
-                        <option value="1year">近1年</option>
-                        <option value="3year">近3年</option>
-                        <option value="5year">近5年</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- 分布分析区域（Tab切换） -->
+            <!-- 分布结构分析区域 -->
             <div class="analysis-section">
+                <div class="section-divider">
+                    <span class="divider-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                    </span>
+                    <span class="divider-text">分布结构分析</span>
+                    <span class="divider-line"></span>
+                </div>
+
+                <!-- 维度切换Tab -->
+                <div class="analysis-tabs">
+                    <div class="tab-scroll">
+                        <span class="tab-item active" data-tab="age">年龄</span>
+                        <span class="tab-item" data-tab="gender">性别</span>
+                        <span class="tab-item" data-tab="education">学历</span>
+                        <span class="tab-item" data-tab="title">职称</span>
+                        <span class="tab-item" data-tab="origin">学缘</span>
+                        <span class="tab-item" data-tab="political">政治</span>
+                        <span class="tab-item" data-tab="talent">人才</span>
+                        <span class="tab-item" data-tab="award">获奖</span>
+                    </div>
+                </div>
+
+                <!-- 筛选器 -->
+                <div class="filter-bar">
+                    <div class="filter-select">
+                        <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                        </svg>
+                        <select id="analysis-filter">
+                            <option value="all">全部人员</option>
+                            <option value="teacher">专任教师</option>
+                            <option value="staff">职员</option>
+                            <option value="contract">合同制</option>
+                            <option value="postdoc">博士后</option>
+                        </select>
+                    </div>
+                    <div class="filter-select">
+                        <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <select id="time-range-filter">
+                            <option value="all">全部时间</option>
+                            <option value="1year">近1年</option>
+                            <option value="3year">近3年</option>
+                            <option value="5year">近5年</option>
+                        </select>
+                    </div>
+                </div>
+
                 <div id="analysis-content">
                     <!-- 默认显示年龄分布 -->
                 </div>
@@ -376,9 +388,8 @@
                 <div class="section-divider">
                     <span class="divider-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
-                            <line x1="18" y1="20" x2="18" y2="10"></line>
-                            <line x1="12" y1="20" x2="12" y2="4"></line>
-                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                            <polyline points="17 6 23 6 23 12"></polyline>
                         </svg>
                     </span>
                     <span class="divider-text">趋势分析</span>
