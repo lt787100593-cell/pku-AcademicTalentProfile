@@ -902,6 +902,9 @@ function switchTab(tab, subType) {
     });
     event?.currentTarget?.classList?.add('active');
     
+    // 切换Tab后滚动到顶部
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
     // 如果有子类型，更新筛选
     if (subType && tab === 'list') {
         currentType = subType;
