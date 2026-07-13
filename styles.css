@@ -1537,3 +1537,41 @@ body {
 .filter-select {
     flex: 1;
 }
+
+/* 分析页面分割标识 */
+.analysis-section {
+    margin-bottom: var(--space-4);
+}
+
+.section-divider {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+    padding: var(--space-3) 0;
+}
+
+.divider-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    flex-shrink: 0;
+}
+
+.divider-text {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-700);
+    white-space: nowrap;
+}
+
+.divider-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--gray-200), transparent);
+}

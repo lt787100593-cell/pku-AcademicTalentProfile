@@ -73,6 +73,153 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // 初始化图表
 function initCharts() {
+    // 近5年在职人数变化趋势
+    const trendCtx1 = document.getElementById('trendChart1');
+    if (trendCtx1) {
+        new Chart(trendCtx1.getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: ['2020', '2021', '2022', '2023', '2024'],
+                datasets: [{
+                    label: '在职人数',
+                    data: [420, 432, 445, 448, 456],
+                    borderColor: '#8C1515',
+                    backgroundColor: 'rgba(140, 21, 21, 0.1)',
+                    tension: 0.4,
+                    fill: true,
+                    pointBackgroundColor: '#8C1515',
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 400,
+                        max: 480,
+                        grid: { color: '#F3F4F6' }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+    }
+
+    // 近5年博士占比变化趋势
+    const trendCtx2 = document.getElementById('trendChart2');
+    if (trendCtx2) {
+        new Chart(trendCtx2.getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: ['2020', '2021', '2022', '2023', '2024'],
+                datasets: [{
+                    label: '博士占比',
+                    data: [62, 64, 65, 67, 68],
+                    borderColor: '#1E3A5F',
+                    backgroundColor: 'rgba(30, 58, 95, 0.1)',
+                    tension: 0.4,
+                    fill: true,
+                    pointBackgroundColor: '#1E3A5F',
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 55,
+                        max: 75,
+                        grid: { color: '#F3F4F6' }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+    }
+
+    // 近5年高层次人才变化趋势
+    const trendCtx3 = document.getElementById('trendChart3');
+    if (trendCtx3) {
+        new Chart(trendCtx3.getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: ['2020', '2021', '2022', '2023', '2024'],
+                datasets: [{
+                    label: '高层次人才',
+                    data: [35, 38, 40, 42, 45],
+                    borderColor: '#D97706',
+                    backgroundColor: 'rgba(217, 119, 6, 0.1)',
+                    tension: 0.4,
+                    fill: true,
+                    pointBackgroundColor: '#D97706',
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 30,
+                        max: 50,
+                        grid: { color: '#F3F4F6' }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+    }
+
+    // 近5年获奖人次变化趋势
+    const trendCtx4 = document.getElementById('trendChart4');
+    if (trendCtx4) {
+        new Chart(trendCtx4.getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: ['2020', '2021', '2022', '2023', '2024'],
+                datasets: [{
+                    label: '获奖人次',
+                    data: [18, 22, 20, 25, 28],
+                    backgroundColor: '#8C1515',
+                    borderRadius: 6,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 35,
+                        grid: { color: '#F3F4F6' }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+    }
     // 人员结构环形图
     const structureCtx = document.getElementById('structureChart');
     if (structureCtx) {
