@@ -177,31 +177,19 @@ body {
     z-index: 0;
 }
 
-/* iPhone 15 Pro比例：19.5:9 ≈ 1:2.17 */
+/* iPhone比例：19.5:9 ≈ 1:2.17，高度900px */
 .phone-frame {
     position: relative;
-    width: 280px;
-    height: 608px; /* 280 * 2.17 */
+    width: 415px;
+    height: 900px;
     background: linear-gradient(145deg, #2D3748 0%, #1A202C 100%);
-    border-radius: 44px;
-    padding: 10px;
+    border-radius: 48px;
+    padding: 12px;
     box-shadow: 
         0 0 0 0.5px rgba(255, 255, 255, 0.1),
-        0 25px 60px rgba(0, 0, 0, 0.35),
-        0 0 80px rgba(140, 21, 21, 0.1);
+        0 30px 80px rgba(0, 0, 0, 0.4),
+        0 0 100px rgba(140, 21, 21, 0.12);
     z-index: 1;
-}
-
-.phone-notch {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 28px;
-    background: #1A202C;
-    border-radius: 0 0 18px 18px;
-    z-index: 10;
 }
 
 .phone-screen {
@@ -406,6 +394,11 @@ body {
     .数据-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+    
+    .phone-frame {
+        width: 320px;
+        height: 694px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -414,8 +407,8 @@ body {
     }
     
     .phone-frame {
-        width: 240px;
-        height: 522px;
+        width: 280px;
+        height: 608px;
     }
     
     .数据-grid {
