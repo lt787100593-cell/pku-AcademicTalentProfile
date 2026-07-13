@@ -1,4 +1,5 @@
 .DS_Store
 .mimocode/
-*.xlsx
-*.png
+人事主题数据说明_人员基本数据.xlsx
+需求说明.png
+generate_prd_docx.py
