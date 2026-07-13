@@ -62,6 +62,7 @@ let currentTab = 'home';
 let currentAnalysisTab = 'age';
 let currentFilter = 'all';
 let currentType = 'all';
+let currentCollege = '光华管理学院';
 
 // 初始化
 document.addEventListener('DOMContentLoaded', function() {
@@ -965,6 +966,43 @@ function showPersonDetail(personId) {
     
     modal.classList.add('active');
 }
+
+// 切换学院下拉框
+function toggleCollegeDropdown() {
+    const dropdown = document.getElementById('collegeDropdown');
+    dropdown.classList.toggle('active');
+}
+
+// 选择学院
+function selectCollege(college) {
+    currentCollege = college;
+    
+    // 更新学院名称显示
+    document.querySelector('.school-name').textContent = college;
+    
+    // 更新下拉框选中状态
+    document.querySelectorAll('.dropdown-item').forEach(item => {
+        item.classList.remove('active');
+        if (item.textContent === college) {
+            item.classList.add('active');
+        }
+    });
+    
+    // 关闭下拉框
+    document.getElementById('collegeDropdown').classList.remove('active');
+    
+    // 这里可以添加切换学院后刷新数据的逻辑
+    console.log('切换到学院：', college);
+}
+
+// 点击外部关闭下拉框
+document.addEventListener('click', function(e) {
+    const dropdown = document.getElementById('collegeDropdown');
+    const selector = document.querySelector('.college-selector');
+    if (dropdown && !selector.contains(e.target)) {
+        dropdown.classList.remove('active');
+    }
+});
 
 // 显示引才质量指数说明
 function showQualityInfo() {
