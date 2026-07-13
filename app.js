@@ -73,33 +73,52 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // 初始化图表
 function initCharts() {
-    // 近5年在职人数变化趋势
+    // 近5年在职人数变化趋势（双线图）
     const trendCtx1 = document.getElementById('trendChart1');
     if (trendCtx1) {
         new Chart(trendCtx1.getContext('2d'), {
             type: 'line',
             data: {
                 labels: ['2020', '2021', '2022', '2023', '2024'],
-                datasets: [{
-                    label: '在职人数',
-                    data: [420, 432, 445, 448, 456],
-                    borderColor: '#8C1515',
-                    backgroundColor: 'rgba(140, 21, 21, 0.1)',
-                    tension: 0.4,
-                    fill: true,
-                    pointBackgroundColor: '#8C1515',
-                }]
+                datasets: [
+                    {
+                        label: '教职工总数',
+                        data: [420, 432, 445, 448, 456],
+                        borderColor: '#8C1515',
+                        backgroundColor: 'rgba(140, 21, 21, 0.1)',
+                        tension: 0.4,
+                        fill: false,
+                        pointBackgroundColor: '#8C1515',
+                    },
+                    {
+                        label: '专任教师',
+                        data: [210, 215, 220, 228, 234],
+                        borderColor: '#1E3A5F',
+                        backgroundColor: 'rgba(30, 58, 95, 0.1)',
+                        tension: 0.4,
+                        fill: false,
+                        pointBackgroundColor: '#1E3A5F',
+                    }
+                ]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    legend: { display: false }
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 12,
+                            usePointStyle: true,
+                            pointStyle: 'circle',
+                            font: { size: 12 }
+                        }
+                    }
                 },
                 scales: {
                     y: {
                         beginAtZero: false,
-                        min: 400,
+                        min: 180,
                         max: 480,
                         grid: { color: '#F3F4F6' }
                     },
@@ -111,7 +130,7 @@ function initCharts() {
         });
     }
 
-    // 近5年博士占比变化趋势
+    // 近5年教职工博士学历占比趋势
     const trendCtx2 = document.getElementById('trendChart2');
     if (trendCtx2) {
         new Chart(trendCtx2.getContext('2d'), {
@@ -149,37 +168,62 @@ function initCharts() {
         });
     }
 
-    // 近5年高层次人才变化趋势
+    // 近5年高层次人才变化（分组柱状图）
     const trendCtx3 = document.getElementById('trendChart3');
     if (trendCtx3) {
         new Chart(trendCtx3.getContext('2d'), {
-            type: 'line',
+            type: 'bar',
             data: {
                 labels: ['2020', '2021', '2022', '2023', '2024'],
-                datasets: [{
-                    label: '高层次人才',
-                    data: [35, 38, 40, 42, 45],
-                    borderColor: '#D97706',
-                    backgroundColor: 'rgba(217, 119, 6, 0.1)',
-                    tension: 0.4,
-                    fill: true,
-                    pointBackgroundColor: '#D97706',
-                }]
+                datasets: [
+                    {
+                        label: '院士',
+                        data: [2, 2, 3, 3, 3],
+                        backgroundColor: '#8C1515',
+                        borderRadius: 4,
+                    },
+                    {
+                        label: '长江学者',
+                        data: [6, 7, 7, 8, 8],
+                        backgroundColor: '#D97706',
+                        borderRadius: 4,
+                    },
+                    {
+                        label: '杰青',
+                        data: [10, 11, 11, 12, 12],
+                        backgroundColor: '#16A34A',
+                        borderRadius: 4,
+                    },
+                    {
+                        label: '青年人才',
+                        data: [17, 18, 19, 19, 22],
+                        backgroundColor: '#3B82F6',
+                        borderRadius: 4,
+                    }
+                ]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    legend: { display: false }
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 12,
+                            usePointStyle: true,
+                            pointStyle: 'circle',
+                            font: { size: 11 }
+                        }
+                    }
                 },
                 scales: {
                     y: {
-                        beginAtZero: false,
-                        min: 30,
-                        max: 50,
+                        beginAtZero: true,
+                        stacked: false,
                         grid: { color: '#F3F4F6' }
                     },
                     x: {
+                        stacked: false,
                         grid: { display: false }
                     }
                 }
@@ -187,33 +231,56 @@ function initCharts() {
         });
     }
 
-    // 近5年获奖人次变化趋势
+    // 近5年获奖人次变化（堆叠柱状图）
     const trendCtx4 = document.getElementById('trendChart4');
     if (trendCtx4) {
         new Chart(trendCtx4.getContext('2d'), {
             type: 'bar',
             data: {
                 labels: ['2020', '2021', '2022', '2023', '2024'],
-                datasets: [{
-                    label: '获奖人次',
-                    data: [18, 22, 20, 25, 28],
-                    backgroundColor: '#8C1515',
-                    borderRadius: 6,
-                }]
+                datasets: [
+                    {
+                        label: '国家级',
+                        data: [5, 6, 5, 7, 8],
+                        backgroundColor: '#8C1515',
+                        borderRadius: 4,
+                    },
+                    {
+                        label: '省部级',
+                        data: [8, 9, 10, 11, 12],
+                        backgroundColor: '#D97706',
+                        borderRadius: 4,
+                    },
+                    {
+                        label: '校级',
+                        data: [5, 7, 5, 7, 8],
+                        backgroundColor: '#16A34A',
+                        borderRadius: 4,
+                    }
+                ]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    legend: { display: false }
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 12,
+                            usePointStyle: true,
+                            pointStyle: 'circle',
+                            font: { size: 11 }
+                        }
+                    }
                 },
                 scales: {
                     y: {
                         beginAtZero: true,
-                        max: 35,
+                        stacked: true,
                         grid: { color: '#F3F4F6' }
                     },
                     x: {
+                        stacked: true,
                         grid: { display: false }
                     }
                 }
