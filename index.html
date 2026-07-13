@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>北京大学学院看板</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <div class="header-left">
+            <img src="视觉素材/20240527144201516364/北大校徽标志_红色.png" alt="北大校徽" class="logo">
+            <span class="school-name">北京大学 · 光华管理学院</span>
+        </div>
+        <div class="header-right">
+            <svg class="icon-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- 主内容区域 -->
+    <main class="main-content">
+        <!-- 首页 -->
+        <section id="page-home" class="page active">
+            <!-- 筛选器 -->
+            <div class="filter-bar">
+                <select id="category-filter">
+                    <option value="all">全部人员</option>
+                    <option value="teacher">专任教师</option>
+                    <option value="staff">职员</option>
+                    <option value="contract">合同制</option>
+                    <option value="postdoc">博士后</option>
+                    <option value="retired">离退</option>
+                </select>
+            </div>
+
+            <!-- KPI卡片 -->
+            <div class="kpi-grid">
+                <div class="kpi-card" onclick="showDetail('employed')">
+                    <div class="kpi-value">456</div>
+                    <div class="kpi-label">在职人数</div>
+                    <div class="kpi-rank">
+                        <span class="rank-badge">第3/28</span>
+                    </div>
+                </div>
+                <div class="kpi-card" onclick="showDetail('teacher')">
+                    <div class="kpi-value">234</div>
+                    <div class="kpi-label">专任教师</div>
+                    <div class="kpi-rank">
+                        <span class="rank-badge">第5/28</span>
+                    </div>
+                </div>
+                <div class="kpi-card" onclick="showDetail('contract')">
+                    <div class="kpi-value">89</div>
+                    <div class="kpi-label">合同制</div>
+                    <div class="kpi-rank">
+                        <span class="rank-badge">第8/28</span>
+                    </div>
+                </div>
+                <div class="kpi-card" onclick="showDetail('postdoc')">
+                    <div class="kpi-value">34</div>
+                    <div class="kpi-label">博士后</div>
+                    <div class="kpi-rank">
+                        <span class="rank-badge">第2/28</span>
+                    </div>
+                </div>
+                <div class="kpi-card" onclick="showDetail('retired')">
+                    <div class="kpi-value">123</div>
+                    <div class="kpi-label">离退人员</div>
+                    <div class="kpi-rank">
+                        <span class="rank-badge">第12/28</span>
+                    </div>
+                </div>
+                <div class="kpi-card" onclick="showDetail('talent')">
+                    <div class="kpi-value">45</div>
+                    <div class="kpi-label">人才数</div>
+                    <div class="kpi-rank">
+                        <span class="rank-badge">第2/28</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 人员进出概览 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <h3>人员进出</h3>
+                    <span class="section-link" onclick="switchTab('analysis')">查看详情 →</span>
+                </div>
+                <div class="flow-summary">
+                    <div class="flow-item positive">
+                        <span class="flow-value">+12</span>
+                        <span class="flow-label">近30天入职</span>
+                    </div>
+                    <div class="flow-item negative">
+                        <span class="flow-value">-3</span>
+                        <span class="flow-label">近30天减离</span>
+                    </div>
+                    <div class="flow-item neutral">
+                        <span class="flow-value">+9</span>
+                        <span class="flow-label">净增减</span>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="flowChart"></canvas>
+                </div>
+            </div>
+
+            <!-- 模块入口 -->
+            <div class="module-grid">
+                <div class="module-card" onclick="showModuleDetail('age')">
+                    <div class="module-icon">📊</div>
+                    <div class="module-name">年龄分布</div>
+                    <div class="module-desc">平均年龄 42.5岁</div>
+                </div>
+                <div class="module-card" onclick="showModuleDetail('gender')">
+                    <div class="module-icon">👥</div>
+                    <div class="module-name">性别分布</div>
+                    <div class="module-desc">男女比 1.2:1</div>
+                </div>
+                <div class="module-card" onclick="showModuleDetail('education')">
+                    <div class="module-icon">🎓</div>
+                    <div class="module-name">学历结构</div>
+                    <div class="module-desc">博士占比 68%</div>
+                </div>
+                <div class="module-card" onclick="showModuleDetail('title')">
+                    <div class="module-icon">📋</div>
+                    <div class="module-name">职称结构</div>
+                    <div class="module-desc">高级职称 45%</div>
+                </div>
+                <div class="module-card" onclick="showModuleDetail('origin')">
+                    <div class="module-icon">🌍</div>
+                    <div class="module-name">学缘结构</div>
+                    <div class="module-desc">海外学缘 32%</div>
+                </div>
+                <div class="module-card" onclick="showModuleDetail('political')">
+                    <div class="module-icon">🏳️</div>
+                    <div class="module-name">政治面貌</div>
+                    <div class="module-desc">党员占比 58%</div>
+                </div>
+                <div class="module-card" onclick="showModuleDetail('retire')">
+                    <div class="module-icon">⏰</div>
+                    <div class="module-name">拟退预警</div>
+                    <div class="module-desc">未来3年 15人</div>
+                </div>
+                <div class="module-card" onclick="showModuleDetail('award')">
+                    <div class="module-icon">🏆</div>
+                    <div class="module-name">获奖情况</div>
+                    <div class="module-desc">本年度 28人次</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 分析详情页 -->
+        <section id="page-analysis" class="page">
+            <!-- 分析模块列表 -->
+            <div id="analysis-content">
+                <!-- 默认显示年龄分布 -->
+                <div class="analysis-header">
+                    <h2>年龄分布</h2>
+                    <select id="analysis-category-filter">
+                        <option value="all">全部人员</option>
+                        <option value="teacher">专任教师</option>
+                        <option value="staff">职员</option>
+                        <option value="contract">合同制</option>
+                        <option value="postdoc">博士后</option>
+                    </select>
+                </div>
+                
+                <div class="analysis-summary">
+                    <div class="summary-item">
+                        <span class="summary-value">42.5</span>
+                        <span class="summary-label">平均年龄</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-rank">第5/28</span>
+                        <span class="summary-label">全校排名</span>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <canvas id="ageChart"></canvas>
+                </div>
+
+                <div class="data-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>年龄段</th>
+                                <th>人数</th>
+                                <th>占比</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr onclick="showPersonList('age', '35以下')">
+                                <td>35岁以下</td>
+                                <td>98</td>
+                                <td>21.5%</td>
+                            </tr>
+                            <tr onclick="showPersonList('age', '36-45')">
+                                <td>36-45岁</td>
+                                <td>156</td>
+                                <td>34.2%</td>
+                            </tr>
+                            <tr onclick="showPersonList('age', '46-55')">
+                                <td>46-55岁</td>
+                                <td>142</td>
+                                <td>31.1%</td>
+                            </tr>
+                            <tr onclick="showPersonList('age', '55以上')">
+                                <td>55岁以上</td>
+                                <td>60</td>
+                                <td>13.2%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="compare-section">
+                    <h3>全校对比</h3>
+                    <div class="compare-chart">
+                        <canvas id="compareChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 人员名单页 -->
+        <section id="page-list" class="page">
+            <div class="list-header">
+                <div class="search-box">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" id="search-input" placeholder="搜索姓名、职称、学历...">
+                </div>
+                <div class="filter-chips">
+                    <span class="chip active" data-filter="all">全部</span>
+                    <span class="chip" data-filter="teacher">专任教师</span>
+                    <span class="chip" data-filter="staff">职员</span>
+                    <span class="chip" data-filter="contract">合同制</span>
+                    <span class="chip" data-filter="postdoc">博士后</span>
+                    <span class="chip" data-filter="retired">离退</span>
+                </div>
+            </div>
+
+            <div class="person-list" id="person-list">
+                <!-- 人员列表将通过JS动态生成 -->
+            </div>
+        </section>
+
+        <!-- 设置页 -->
+        <section id="page-settings" class="page">
+            <div class="settings-content">
+                <div class="settings-group">
+                    <h3>数据更新</h3>
+                    <div class="settings-item">
+                        <span>最近更新时间</span>
+                        <span class="settings-value">2026-07-13 08:00</span>
+                    </div>
+                    <div class="settings-item">
+                        <span>数据同步状态</span>
+                        <span class="settings-value status-success">正常</span>
+                    </div>
+                </div>
+                <div class="settings-group">
+                    <h3>显示设置</h3>
+                    <div class="settings-item">
+                        <span>深色模式</span>
+                        <label class="switch">
+                            <input type="checkbox" id="darkModeToggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-item">
+                        <span>字体大小</span>
+                        <select id="fontSizeSelect">
+                            <option value="small">小</option>
+                            <option value="medium" selected>中</option>
+                            <option value="large">大</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="settings-group">
+                    <h3>关于</h3>
+                    <div class="settings-item">
+                        <span>版本</span>
+                        <span class="settings-value">V1.0.0</span>
+                    </div>
+                    <div class="settings-item">
+                        <span>技术支持</span>
+                        <span class="settings-value">信息中心</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 底部导航 -->
+    <nav class="bottom-nav">
+        <div class="nav-item active" onclick="switchTab('home')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span>首页</span>
+        </div>
+        <div class="nav-item" onclick="switchTab('analysis')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"></path>
+                <path d="M3 5v14a2 2 0 0 0 2 2h16v-5"></path>
+                <path d="M18 12a2 2 0 0 0 0 4h4v-4Z"></path>
+            </svg>
+            <span>分析</span>
+        </div>
+        <div class="nav-item" onclick="switchTab('list')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>名单</span>
+        </div>
+        <div class="nav-item" onclick="switchTab('settings')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+            <span>设置</span>
+        </div>
+    </nav>
+
+    <!-- 人员详情弹窗 -->
+    <div id="person-detail-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">人员详情</h3>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- 动态内容 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
