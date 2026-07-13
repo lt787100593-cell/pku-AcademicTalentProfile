@@ -527,6 +527,43 @@ function showPersonDetail(personId) {
     modal.classList.add('active');
 }
 
+// 显示引才质量指数说明
+function showQualityInfo() {
+    const modal = document.getElementById('detail-modal');
+    const title = document.getElementById('modal-title');
+    const body = document.getElementById('modal-body');
+    
+    title.textContent = '引才质量指数说明';
+    body.innerHTML = `
+        <div class="detail-card">
+            <div class="detail-row">
+                <span class="detail-label">计算公式</span>
+                <span class="detail-value" style="font-size: 12px;">博士占比×0.3 + 海外学缘占比×0.3 + 高层次人才占比×0.4</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">数据范围</span>
+                <span class="detail-value">全院在职人员</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">评分标准</span>
+                <span class="detail-value">0-100分</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">排名依据</span>
+                <span class="detail-value">全校28个学院对比</span>
+            </div>
+        </div>
+        <div style="padding: 12px; background: #F9FAFB; border-radius: 8px; font-size: 13px; color: #6B7280;">
+            <strong>指标说明：</strong><br>
+            • 博士占比：具有博士学位人员占总人数比例<br>
+            • 海外学缘：最后学历在海外院校获得的比例<br>
+            • 高层次人才：院士、长江学者、杰青、青年人才等
+        </div>
+    `;
+    
+    modal.classList.add('active');
+}
+
 // 关闭弹窗
 function closeModal() {
     document.getElementById('detail-modal').classList.remove('active');

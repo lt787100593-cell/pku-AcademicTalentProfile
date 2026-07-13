@@ -1177,3 +1177,99 @@ body {
     background: rgba(220, 38, 38, 0.1);
     color: var(--danger);
 }
+
+/* 引才质量指数说明图标 */
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--gray-200);
+    color: var(--gray-600);
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: var(--space-2);
+}
+
+.info-icon:hover {
+    background: var(--gray-300);
+}
+
+/* 编制使用率详情表格 */
+.quota-table {
+    margin-top: var(--space-4);
+}
+
+.quota-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.quota-table th,
+.quota-table td {
+    padding: var(--space-2) var(--space-3);
+    text-align: left;
+    border-bottom: 1px solid var(--gray-100);
+    font-size: 13px;
+}
+
+.quota-table th {
+    font-weight: 600;
+    color: var(--gray-500);
+    font-size: 12px;
+}
+
+.quota-table td {
+    color: var(--gray-700);
+}
+
+.quota-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* 人员流动指标卡片对齐 */
+.health-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+}
+
+.health-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-4);
+    background: var(--gray-50);
+    border-radius: var(--radius-md);
+    min-height: 120px;
+}
+
+.health-value {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+}
+
+.health-label {
+    font-size: 12px;
+    color: var(--gray-500);
+    text-align: center;
+    margin-bottom: var(--space-3);
+    line-height: 1.4;
+    flex: 1;
+}
+
+.health-status {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.health-status.good {
+    background: rgba(22, 163, 74, 0.1);
+    color: var(--success);
+}

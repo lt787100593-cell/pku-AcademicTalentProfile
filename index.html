@@ -141,6 +141,7 @@
                             <path d="M2 12l10 5 10-5"></path>
                         </svg>
                         <h3>引才质量指数</h3>
+                        <span class="info-icon" onclick="showQualityInfo()">ⓘ</span>
                     </div>
                     <span class="score-badge">82分 · 全校第3</span>
                 </div>
@@ -181,9 +182,42 @@
                         <span class="progress-percent">91.2%</span>
                     </div>
                 </div>
+                <div class="quota-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>人员类别</th>
+                                <th>已用/总数</th>
+                                <th>使用率</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>专任教师</td>
+                                <td>250/260</td>
+                                <td><span class="status-badge warning">96.2%</span></td>
+                            </tr>
+                            <tr>
+                                <td>职员</td>
+                                <td>82/90</td>
+                                <td><span class="status-badge success">91.1%</span></td>
+                            </tr>
+                            <tr>
+                                <td>合同制</td>
+                                <td>89/100</td>
+                                <td><span class="status-badge success">89%</span></td>
+                            </tr>
+                            <tr>
+                                <td>博士后</td>
+                                <td>35/50</td>
+                                <td><span class="status-badge success">70%</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
-            <!-- 退休潮预警 -->
+            <!-- 退休潮预测 -->
             <div class="section-card">
                 <div class="section-header">
                     <div class="section-title">
@@ -191,7 +225,7 @@
                             <circle cx="12" cy="12" r="10"></circle>
                             <polyline points="12 6 12 12 16 14"></polyline>
                         </svg>
-                        <h3>退休潮预警</h3>
+                        <h3>退休潮预测</h3>
                     </div>
                 </div>
                 <div class="retire-grid">
@@ -203,9 +237,9 @@
                         <div class="retire-value">6人</div>
                         <div class="retire-label">正高退休</div>
                     </div>
-                    <div class="retire-item highlight">
-                        <div class="retire-value">2028年</div>
-                        <div class="retire-label">退休高峰</div>
+                    <div class="retire-item">
+                        <div class="retire-value">6人</div>
+                        <div class="retire-label">副高退休</div>
                     </div>
                 </div>
             </div>
@@ -312,113 +346,6 @@
                 <!-- 默认显示年龄分布 -->
             </div>
 
-            <!-- 编制使用率详情 -->
-            <div class="section-card">
-                <div class="section-header">
-                    <div class="section-title">
-                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="8.5" cy="7" r="4"></circle>
-                            <polyline points="17 11 19 13 23 9"></polyline>
-                        </svg>
-                        <h3>编制使用率详情</h3>
-                    </div>
-                </div>
-                <div class="data-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>人员类别</th>
-                                <th>已用/总数</th>
-                                <th>使用率</th>
-                                <th>状态</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>专任教师</td>
-                                <td>250/260</td>
-                                <td>96.2%</td>
-                                <td><span class="status-badge warning">紧张</span></td>
-                            </tr>
-                            <tr>
-                                <td>职员</td>
-                                <td>82/90</td>
-                                <td>91.1%</td>
-                                <td><span class="status-badge success">正常</span></td>
-                            </tr>
-                            <tr>
-                                <td>合同制</td>
-                                <td>89/100</td>
-                                <td>89%</td>
-                                <td><span class="status-badge success">正常</span></td>
-                            </tr>
-                            <tr>
-                                <td>博士后</td>
-                                <td>35/50</td>
-                                <td>70%</td>
-                                <td><span class="status-badge success">正常</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- 职称晋升漏斗 -->
-            <div class="section-card">
-                <div class="section-header">
-                    <div class="section-title">
-                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
-                        </svg>
-                        <h3>职称晋升漏斗（专任教师）</h3>
-                    </div>
-                </div>
-                <div class="funnel-container">
-                    <div class="funnel-item">
-                        <div class="funnel-bar" style="width: 100%"></div>
-                        <div class="funnel-info">
-                            <span class="funnel-label">入职</span>
-                            <span class="funnel-value">234人</span>
-                        </div>
-                    </div>
-                    <div class="funnel-arrow">
-                        <span>↓ 平均3.2年</span>
-                    </div>
-                    <div class="funnel-item">
-                        <div class="funnel-bar" style="width: 70%"></div>
-                        <div class="funnel-info">
-                            <span class="funnel-label">讲师</span>
-                            <span class="funnel-value">89人</span>
-                        </div>
-                    </div>
-                    <div class="funnel-arrow">
-                        <span>↓ 平均4.5年</span>
-                    </div>
-                    <div class="funnel-item">
-                        <div class="funnel-bar" style="width: 55%"></div>
-                        <div class="funnel-info">
-                            <span class="funnel-label">副教授</span>
-                            <span class="funnel-value">78人</span>
-                        </div>
-                    </div>
-                    <div class="funnel-arrow">
-                        <span>↓ 平均6.8年</span>
-                    </div>
-                    <div class="funnel-item">
-                        <div class="funnel-bar" style="width: 45%"></div>
-                        <div class="funnel-info">
-                            <span class="funnel-label">教授</span>
-                            <span class="funnel-value">67人</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="compare-info">
-                    <span>全校平均晋升周期：12.5年</span>
-                    <span class="highlight">本院：11.3年 ✓ 优于全校</span>
-                </div>
-            </div>
-
             <!-- 学科发展对比 -->
             <div class="section-card">
                 <div class="section-header">
@@ -436,41 +363,53 @@
                         <thead>
                             <tr>
                                 <th>学科</th>
-                                <th>专任教师</th>
+                                <th>教师</th>
                                 <th>博士占比</th>
-                                <th>高层次人才</th>
+                                <th>人才</th>
+                                <th>晋升副高</th>
+                                <th>晋升正高</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>经济学</td>
-                                <td>45人</td>
+                                <td>45</td>
                                 <td>75%</td>
                                 <td>8人</td>
+                                <td>5.2年</td>
+                                <td>8.5年</td>
                             </tr>
                             <tr>
                                 <td>金融学</td>
-                                <td>38人</td>
+                                <td>38</td>
                                 <td>82%</td>
                                 <td>12人</td>
+                                <td>4.8年</td>
+                                <td>7.9年</td>
                             </tr>
                             <tr>
                                 <td>会计学</td>
-                                <td>32人</td>
+                                <td>32</td>
                                 <td>68%</td>
                                 <td>5人</td>
+                                <td>5.5年</td>
+                                <td>9.2年</td>
                             </tr>
                             <tr>
                                 <td>管理学</td>
-                                <td>28人</td>
+                                <td>28</td>
                                 <td>71%</td>
                                 <td>6人</td>
+                                <td>5.0年</td>
+                                <td>8.0年</td>
                             </tr>
                             <tr>
                                 <td>市场营销</td>
-                                <td>25人</td>
+                                <td>25</td>
                                 <td class="low">65%</td>
                                 <td>4人</td>
+                                <td>5.8年</td>
+                                <td>9.5年</td>
                             </tr>
                         </tbody>
                     </table>
@@ -505,7 +444,7 @@
                 </div>
             </div>
 
-            <!-- 学术谱系分析 -->
+            <!-- 学缘来源分析 -->
             <div class="section-card">
                 <div class="section-header">
                     <div class="section-title">
@@ -514,7 +453,7 @@
                             <line x1="2" y1="12" x2="22" y2="12"></line>
                             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
                         </svg>
-                        <h3>学术谱系</h3>
+                        <h3>学缘来源分析（TOP5院校）</h3>
                     </div>
                 </div>
                 <div class="origin-tree">
@@ -526,31 +465,31 @@
                         </div>
                     </div>
                     <div class="origin-item">
-                        <div class="origin-bar" style="width: 60%"></div>
+                        <div class="origin-bar" style="width: 13.5%"></div>
                         <div class="origin-info">
                             <span class="origin-name">清华大学</span>
                             <span class="origin-count">12人 (2.6%)</span>
                         </div>
                     </div>
                     <div class="origin-item">
-                        <div class="origin-bar" style="width: 45%"></div>
+                        <div class="origin-bar" style="width: 9%"></div>
                         <div class="origin-info">
                             <span class="origin-name">人民大学</span>
                             <span class="origin-count">8人 (1.8%)</span>
                         </div>
                     </div>
                     <div class="origin-item">
-                        <div class="origin-bar" style="width: 40%"></div>
+                        <div class="origin-bar" style="width: 7.9%"></div>
                         <div class="origin-info">
                             <span class="origin-name">复旦大学</span>
                             <span class="origin-count">7人 (1.5%)</span>
                         </div>
                     </div>
                     <div class="origin-item">
-                        <div class="origin-bar" style="width: 35%"></div>
+                        <div class="origin-bar" style="width: 6.7%"></div>
                         <div class="origin-info">
-                            <span class="origin-name">海外院校</span>
-                            <span class="origin-count">146人 (32%)</span>
+                            <span class="origin-name">南京大学</span>
+                            <span class="origin-count">6人 (1.3%)</span>
                         </div>
                     </div>
                 </div>
@@ -574,17 +513,17 @@
                 <div class="health-grid">
                     <div class="health-card">
                         <div class="health-value good">2.1%</div>
-                        <div class="health-label">近三年人员流失率</div>
+                        <div class="health-label">近三年<br>人员流失率</div>
                         <div class="health-status good">优秀</div>
                     </div>
                     <div class="health-card">
                         <div class="health-value good">8.5年</div>
-                        <div class="health-label">平均在职年限</div>
+                        <div class="health-label">平均<br>在职年限</div>
                         <div class="health-status good">优秀</div>
                     </div>
                     <div class="health-card">
                         <div class="health-value good">15%</div>
-                        <div class="health-label">近三年新进人员占比</div>
+                        <div class="health-label">近三年<br>新进人员占比</div>
                         <div class="health-status good">良好</div>
                     </div>
                 </div>
