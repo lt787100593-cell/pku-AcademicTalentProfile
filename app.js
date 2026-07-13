@@ -64,8 +64,20 @@ let currentFilter = 'all';
 let currentType = 'all';
 let currentCollege = '光华管理学院';
 
+// 获取当天早上5点的更新时间
+function getDataUpdateTime() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day} 05:00`;
+}
+
 // 初始化
 document.addEventListener('DOMContentLoaded', function() {
+    // 设置数据更新时间
+    document.getElementById('update-time').textContent = getDataUpdateTime();
+    
     initCharts();
     initAnalysisContent();
     initPersonList();
