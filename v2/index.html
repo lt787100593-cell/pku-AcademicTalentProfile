@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>北京大学学院看板</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="header">
+        <div class="header-left">
+            <img src="../视觉素材/20240527144201516364/北大校徽标志_红色.png" alt="北大校徽" class="logo">
+            <span class="school-name" id="unit-name">光华管理学院</span>
+        </div>
+        <div class="header-right">
+            <div class="unit-type-badge" id="unit-type-badge">二级学院</div>
+            <div class="college-selector" onclick="toggleCollegeDropdown()">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                <svg class="icon dropdown-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </div>
+            <div class="college-dropdown" id="collegeDropdown">
+                <div class="dropdown-group-label">二级学院</div>
+                <div class="dropdown-item active" onclick="selectCollege('光华管理学院', 'college')">光华管理学院</div>
+                <div class="dropdown-item" onclick="selectCollege('经济学院', 'college')">经济学院</div>
+                <div class="dropdown-item" onclick="selectCollege('法学院', 'college')">法学院</div>
+                <div class="dropdown-item" onclick="selectCollege('国际关系学院', 'college')">国际关系学院</div>
+                <div class="dropdown-item" onclick="selectCollege('信息管理系', 'college')">信息管理系</div>
+                <div class="dropdown-group-label">职能部门</div>
+                <div class="dropdown-item" onclick="selectCollege('计算中心', 'department')">计算中心</div>
+                <div class="dropdown-item" onclick="selectCollege('人事部', 'department')">人事部</div>
+                <div class="dropdown-item" onclick="selectCollege('教务部', 'department')">教务部</div>
+                <div class="dropdown-item" onclick="selectCollege('科研部', 'department')">科研部</div>
+                <div class="dropdown-item" onclick="selectCollege('财务处', 'department')">财务处</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主内容区域 -->
+    <main class="main-content">
+        <!-- ========== 二级学院页面 ========== -->
+        <!-- 总览页面 - 学院 -->
+        <section id="page-home-college" class="page active unit-college">
+            <div class="section-divider">
+                <span class="divider-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </span>
+                <span class="divider-text">人员概览</span>
+                <span class="divider-line"></span>
+            </div>
+
+            <!-- KPI卡片 -->
+            <div class="kpi-grid">
+                <div class="kpi-card" onclick="showDetail('employed')">
+                    <div class="kpi-header">
+                        <div class="kpi-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <div class="kpi-trend positive">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                <polyline points="17 6 23 6 23 12"></polyline>
+                            </svg>
+                            <span>2.3%</span>
+                        </div>
+                    </div>
+                    <div class="kpi-value">456</div>
+                    <div class="kpi-label">在职人数</div>
+                </div>
+
+                <div class="kpi-card" onclick="showDetail('teacher')">
+                    <div class="kpi-header">
+                        <div class="kpi-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                            </svg>
+                        </div>
+                        <div class="kpi-trend positive">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                <polyline points="17 6 23 6 23 12"></polyline>
+                            </svg>
+                            <span>1.8%</span>
+                        </div>
+                    </div>
+                    <div class="kpi-value">234</div>
+                    <div class="kpi-label">专任教师</div>
+                </div>
+
+                <div class="kpi-card" onclick="showDetail('talent')">
+                    <div class="kpi-header">
+                        <div class="kpi-icon talent">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="8" r="7"></circle>
+                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                            </svg>
+                        </div>
+                        <div class="kpi-trend positive">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                <polyline points="17 6 23 6 23 12"></polyline>
+                            </svg>
+                            <span>+3人</span>
+                        </div>
+                    </div>
+                    <div class="kpi-value">45</div>
+                    <div class="kpi-label">高层次人才</div>
+                </div>
+
+                <div class="kpi-card" onclick="showDetail('award')">
+                    <div class="kpi-header">
+                        <div class="kpi-icon award">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 6 9 6 9z"></path>
+                                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5C17 4 18 9 18 9z"></path>
+                                <path d="M4 22h16"></path>
+                                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22"></path>
+                                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20 17 22"></path>
+                                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                            </svg>
+                        </div>
+                        <div class="kpi-trend positive">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                <polyline points="17 6 23 6 23 12"></polyline>
+                            </svg>
+                            <span>+5人次</span>
+                        </div>
+                    </div>
+                    <div class="kpi-value">28</div>
+                    <div class="kpi-label">本年获奖</div>
+                </div>
+            </div>
+
+            <!-- 引才质量指数 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                        <h3>引才质量指数</h3>
+                        <span class="info-icon" onclick="showQualityInfo()">ⓘ</span>
+                    </div>
+                    <span class="score-badge">82分</span>
+                </div>
+                <div class="quality-grid">
+                    <div class="quality-item">
+                        <div class="quality-value">68%</div>
+                        <div class="quality-label">博士占比</div>
+                    </div>
+                    <div class="quality-item">
+                        <div class="quality-value">32%</div>
+                        <div class="quality-label">海外学缘</div>
+                    </div>
+                    <div class="quality-item">
+                        <div class="quality-value">10%</div>
+                        <div class="quality-label">高层次人才</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 退休潮预测 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <h3>退休潮预测</h3>
+                    </div>
+                </div>
+                <div class="retire-grid">
+                    <div class="retire-item">
+                        <div class="retire-value">15人</div>
+                        <div class="retire-label">未来3年预测</div>
+                    </div>
+                    <div class="retire-item warning">
+                        <div class="retire-value">6人</div>
+                        <div class="retire-label">正高退休</div>
+                    </div>
+                    <div class="retire-item">
+                        <div class="retire-value">6人</div>
+                        <div class="retire-label">副高退休</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 人才概况 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="8" r="7"></circle>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                        </svg>
+                        <h3>人才概况</h3>
+                    </div>
+                    <span class="section-link" onclick="switchTab('list', 'talent')">查看完整名单</span>
+                </div>
+                <div class="talent-grid">
+                    <div class="talent-item">
+                        <div class="talent-count">3</div>
+                        <div class="talent-type">院士</div>
+                    </div>
+                    <div class="talent-item">
+                        <div class="talent-count">8</div>
+                        <div class="talent-type">长江学者</div>
+                    </div>
+                    <div class="talent-item">
+                        <div class="talent-count">12</div>
+                        <div class="talent-type">杰青</div>
+                    </div>
+                    <div class="talent-item">
+                        <div class="talent-count">22</div>
+                        <div class="talent-type">青年人才</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 获奖亮点 -->
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C7 4 6 9 6 9z"></path>
+                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5C17 4 18 9 18 9z"></path>
+                            <path d="M4 22h16"></path>
+                            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20 7 22"></path>
+                            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20 17 22"></path>
+                            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                        </svg>
+                        <h3>获奖亮点</h3>
+                    </div>
+                    <span class="section-link" onclick="switchTab('list', 'award')">查看完整名单</span>
+                </div>
+                <div class="award-summary">
+                    <div class="award-item">
+                        <div class="award-count national">8</div>
+                        <div class="award-type">国家级</div>
+                    </div>
+                    <div class="award-item">
+                        <div class="award-count provincial">12</div>
+                        <div class="award-type">省部级</div>
+                    </div>
+                    <div class="award-item">
+                        <div class="award-count school">8</div>
+                        <div class="award-type">校级</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 分析页面 - 学院 -->
+        <section id="page-analysis-college" class="page unit-college">
+            <div class="analysis-section">
+                <div class="section-divider">
+                    <span class="divider-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                    </span>
+                    <span class="divider-text">分布结构分析</span>
+                    <span class="divider-line"></span>
+                </div>
+
+                <div class="analysis-tabs">
+                    <div class="tab-scroll">
+                        <span class="tab-item active" data-tab="age">年龄</span>
+                        <span class="tab-item" data-tab="gender">性别</span>
+                        <span class="tab-item" data-tab="education">学历</span>
+                        <span class="tab-item" data-tab="title">职称</span>
+                        <span class="tab-item" data-tab="origin">学缘</span>
+                        <span class="tab-item" data-tab="political">政治</span>
+                        <span class="tab-item" data-tab="talent">人才</span>
+                        <span class="tab-item" data-tab="award">获奖</span>
+                    </div>
+                </div>
+
+                <div id="analysis-content-college"></div>
+                
+                <div class="section-divider">
+                    <span class="divider-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                            <polyline points="17 6 23 6 23 12"></polyline>
+                        </svg>
+                    </span>
+                    <span class="divider-text">趋势分析</span>
+                    <span class="divider-line"></span>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <div class="section-card">
+                    <div class="section-header">
+                        <div class="section-title"><h3>近5年在职人数变化</h3></div>
+                    </div>
+                    <div class="chart-container"><canvas id="college-trendChart1"></canvas></div>
+                </div>
+                <div class="section-card">
+                    <div class="section-header">
+                        <div class="section-title"><h3>近5年教职工博士学历占比趋势</h3></div>
+                    </div>
+                    <div class="chart-container"><canvas id="college-trendChart2"></canvas></div>
+                </div>
+                <div class="section-card">
+                    <div class="section-header">
+                        <div class="section-title"><h3>近5年高层次人才变化</h3></div>
+                    </div>
+                    <div class="chart-container"><canvas id="college-trendChart3"></canvas></div>
+                </div>
+                <div class="section-card">
+                    <div class="section-header">
+                        <div class="section-title"><h3>近5年获奖人次变化</h3></div>
+                    </div>
+                    <div class="chart-container"><canvas id="college-trendChart4"></canvas></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 洞察页面 - 学院 -->
+        <section id="page-insight-college" class="page unit-college">
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <h3>人才画像</h3>
+                    </div>
+                </div>
+                <div class="tag-cloud">
+                    <span class="tag-item large">博士 68%</span>
+                    <span class="tag-item medium">海外学缘 32%</span>
+                    <span class="tag-item large">专任教师 51%</span>
+                    <span class="tag-item small">院士 3人</span>
+                    <span class="tag-item medium">长江学者 8人</span>
+                    <span class="tag-item large">党员 58%</span>
+                    <span class="tag-item medium">45岁以下 55%</span>
+                    <span class="tag-item small">杰青 12人</span>
+                    <span class="tag-item medium">经济学 45%</span>
+                    <span class="tag-item small">青年人才 22人</span>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                        <h3>学缘来源分析（TOP5院校）</h3>
+                    </div>
+                </div>
+                <div class="origin-tree">
+                    <div class="origin-item">
+                        <div class="origin-bar" style="width: 100%"></div>
+                        <div class="origin-info">
+                            <span class="origin-name">北京大学</span>
+                            <span class="origin-count">89人 (19.5%)</span>
+                        </div>
+                    </div>
+                    <div class="origin-item">
+                        <div class="origin-bar" style="width: 13.5%"></div>
+                        <div class="origin-info">
+                            <span class="origin-name">清华大学</span>
+                            <span class="origin-count">12人 (2.6%)</span>
+                        </div>
+                    </div>
+                    <div class="origin-item">
+                        <div class="origin-bar" style="width: 9%"></div>
+                        <div class="origin-info">
+                            <span class="origin-name">人民大学</span>
+                            <span class="origin-count">8人 (1.8%)</span>
+                        </div>
+                    </div>
+                    <div class="origin-item">
+                        <div class="origin-bar" style="width: 7.9%"></div>
+                        <div class="origin-info">
+                            <span class="origin-name">复旦大学</span>
+                            <span class="origin-count">7人 (1.5%)</span>
+                        </div>
+                    </div>
+                    <div class="origin-item">
+                        <div class="origin-bar" style="width: 6.7%"></div>
+                        <div class="origin-info">
+                            <span class="origin-name">南京大学</span>
+                            <span class="origin-count">6人 (1.3%)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="origin-compare">
+                    <span>本校学缘：19.5%</span>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                        <h3>人员流动指标</h3>
+                    </div>
+                </div>
+                <div class="health-grid">
+                    <div class="health-card">
+                        <div class="health-value good">2.1%</div>
+                        <div class="health-label">近三年<br>人员流失率</div>
+                        <div class="health-status good">优秀</div>
+                    </div>
+                    <div class="health-card">
+                        <div class="health-value good">8.5年</div>
+                        <div class="health-label">平均<br>在职年限</div>
+                        <div class="health-status good">优秀</div>
+                    </div>
+                    <div class="health-card">
+                        <div class="health-value good">15%</div>
+                        <div class="health-label">近三年<br>新进人员占比</div>
+                        <div class="health-status good">良好</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                        <h3>人才获奖产出分析</h3>
+                    </div>
+                </div>
+                <div class="data-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>人才类别</th>
+                                <th>人数</th>
+                                <th>获奖人次</th>
+                                <th>人均获奖</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>院士</td>
+                                <td>3</td>
+                                <td>12</td>
+                                <td class="highlight">4.0</td>
+                            </tr>
+                            <tr>
+                                <td>长江学者</td>
+                                <td>8</td>
+                                <td>8</td>
+                                <td>1.0</td>
+                            </tr>
+                            <tr>
+                                <td>杰青</td>
+                                <td>12</td>
+                                <td>6</td>
+                                <td>0.5</td>
+                            </tr>
+                            <tr>
+                                <td>青年人才</td>
+                                <td>22</td>
+                                <td>2</td>
+                                <td>0.1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 名单页面 - 学院 -->
+        <section id="page-list-college" class="page unit-college">
+            <div class="search-box">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input type="text" id="search-input" placeholder="搜索姓名、职称、学历...">
+            </div>
+            <div class="type-filter">
+                <span class="type-chip active" data-type="all">全部</span>
+                <span class="type-chip" data-type="person">人员</span>
+                <span class="type-chip" data-type="talent">人才</span>
+                <span class="type-chip" data-type="award">获奖</span>
+            </div>
+            <div class="person-list" id="person-list"></div>
+            <div class="award-list" id="award-list" style="display: none;"></div>
+        </section>
+
+        <!-- ========== 职能部门页面 ========== -->
+        <!-- 总览页面 - 部门 -->
+        <section id="page-home-department" class="page unit-department">
+            <div class="section-divider">
+                <span class="divider-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                </span>
+                <span class="divider-text">人员概览</span>
+                <span class="divider-line"></span>
+            </div>
+
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <div class="kpi-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="kpi-value">10</div>
+                    <div class="kpi-label">教职工总人数</div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <div class="kpi-icon talent">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="8" r="7"></circle>
+                                <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="kpi-value">1</div>
+                    <div class="kpi-label">正高级职称</div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <div class="kpi-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="kpi-value">3</div>
+                    <div class="kpi-label">副高级职称</div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-header">
+                        <div class="kpi-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="kpi-value">6</div>
+                    <div class="kpi-label">中级及以下</div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                        </svg>
+                        <h3>人员构成</h3>
+                    </div>
+                </div>
+                <div class="staff-composition">
+                    <div class="composition-item">
+                        <div class="composition-bar">
+                            <div class="composition-fill" style="width: 70%; background: #1E3A5F;"></div>
+                        </div>
+                        <div class="composition-info">
+                            <span class="composition-name">职员</span>
+                            <span class="composition-count">7人 (70%)</span>
+                        </div>
+                    </div>
+                    <div class="composition-item">
+                        <div class="composition-bar">
+                            <div class="composition-fill" style="width: 30%; background: #D97706;"></div>
+                        </div>
+                        <div class="composition-info">
+                            <span class="composition-name">合同制</span>
+                            <span class="composition-count">3人 (30%)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <h3>退休潮预测</h3>
+                    </div>
+                </div>
+                <div class="retire-grid">
+                    <div class="retire-item">
+                        <div class="retire-value">2人</div>
+                        <div class="retire-label">未来3年预测</div>
+                    </div>
+                    <div class="retire-item warning">
+                        <div class="retire-value">1人</div>
+                        <div class="retire-label">正高退休</div>
+                    </div>
+                    <div class="retire-item">
+                        <div class="retire-value">1人</div>
+                        <div class="retire-label">副高退休</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 分析页面 - 部门 -->
+        <section id="page-analysis-department" class="page unit-department">
+            <div class="analysis-section">
+                <div class="section-divider">
+                    <span class="divider-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                    </span>
+                    <span class="divider-text">分布结构分析</span>
+                    <span class="divider-line"></span>
+                </div>
+
+                <div class="analysis-tabs">
+                    <div class="tab-scroll">
+                        <span class="tab-item active" data-tab="dept-age">年龄</span>
+                        <span class="tab-item" data-tab="dept-gender">性别</span>
+                        <span class="tab-item" data-tab="dept-education">学历</span>
+                        <span class="tab-item" data-tab="dept-title">职称</span>
+                        <span class="tab-item" data-tab="dept-political">政治</span>
+                        <span class="tab-item" data-tab="dept-type">用工类型</span>
+                    </div>
+                </div>
+
+                <div id="analysis-content-department"></div>
+                
+                <div class="section-divider">
+                    <span class="divider-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                            <polyline points="17 6 23 6 23 12"></polyline>
+                        </svg>
+                    </span>
+                    <span class="divider-text">趋势分析</span>
+                    <span class="divider-line"></span>
+                </div>
+            </div>
+
+            <div class="analysis-section">
+                <div class="section-card">
+                    <div class="section-header">
+                        <div class="section-title"><h3>近5年在职人数变化</h3></div>
+                    </div>
+                    <div class="chart-container"><canvas id="dept-trendChart1"></canvas></div>
+                </div>
+                <div class="section-card">
+                    <div class="section-header">
+                        <div class="section-title"><h3>近5年用工类型变化</h3></div>
+                    </div>
+                    <div class="chart-container"><canvas id="dept-trendChart2"></canvas></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 洞察页面 - 部门 -->
+        <section id="page-insight-department" class="page unit-department">
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                        </svg>
+                        <h3>人员流动指标</h3>
+                    </div>
+                </div>
+                <div class="health-grid">
+                    <div class="health-card">
+                        <div class="health-value good">0%</div>
+                        <div class="health-label">近三年<br>人员流失率</div>
+                        <div class="health-status good">优秀</div>
+                    </div>
+                    <div class="health-card">
+                        <div class="health-value good">12.5年</div>
+                        <div class="health-label">平均<br>在职年限</div>
+                        <div class="health-status good">优秀</div>
+                    </div>
+                    <div class="health-card">
+                        <div class="health-value good">20%</div>
+                        <div class="health-label">近三年<br>新进人员占比</div>
+                        <div class="health-status good">良好</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <svg class="section-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                        <h3>最高学历来源高校TOP5</h3>
+                    </div>
+                </div>
+                <div class="origin-tree">
+                    <div class="origin-item">
+                        <div class="origin-bar" style="width: 100%"></div>
+                        <div class="origin-info">
+                            <span class="origin-name">北京大学</span>
+                            <span class="origin-count">3人 (30%)</span>
+                        </div>
+                    </div>
+                    <div class="origin-item">
+                        <div class="origin-bar" style="width: 50%"></div>
+                        <div class="origin-info">
+                            <span class="origin-name">清华大学</span>
+                            <span class="origin-count">2人 (20%)</span>
+                        </div>
+                    </div>
+                    <div class="origin-item">
+                        <div class="origin-bar" style="width: 30%"></div>
+                        <div class="origin-info">
+                            <span class="origin-name">北京航空航天大学</span>
+                            <span class="origin-count">1人 (10%)</span>
+                        </div>
+                    </div>
+                    <div class="origin-item">
+                        <div class="origin-bar" style="width: 30%"></div>
+                        <div class="origin-info">
+                            <span class="origin-name">中国科学院大学</span>
+                            <span class="origin-count">1人 (10%)</span>
+                        </div>
+                    </div>
+                    <div class="origin-item">
+                        <div class="origin-bar" style="width: 30%"></div>
+                        <div class="origin-info">
+                            <span class="origin-name">北京邮电大学</span>
+                            <span class="origin-count">1人 (10%)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="origin-compare">
+                    <span>本校学缘：30%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 名单页面 - 部门 -->
+        <section id="page-list-department" class="page unit-department">
+            <div class="search-box">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input type="text" id="search-input-dept" placeholder="搜索姓名、职称、学历...">
+            </div>
+            <div class="type-filter">
+                <span class="type-chip active" data-type="all">全部</span>
+                <span class="type-chip" data-type="person">人员</span>
+                <span class="type-chip" data-type="award">获奖</span>
+            </div>
+            <div class="person-list" id="person-list-dept"></div>
+            <div class="award-list" id="award-list-dept" style="display: none;"></div>
+        </section>
+
+        <!-- 暂无数据页面 -->
+        <section id="page-no-data" class="page">
+            <div class="no-data-container">
+                <svg class="no-data-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M16 16s-1.5-2-4-2-4 2-4 2"></path>
+                    <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                    <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                </svg>
+                <h3 class="no-data-title">暂无数据</h3>
+                <p class="no-data-text">该单位的人事数据尚未接入</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- 底部导航 -->
+    <nav class="bottom-nav">
+        <div class="nav-item active" onclick="switchTab('home')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="7" height="7"></rect>
+                <rect x="14" y="3" width="7" height="7"></rect>
+                <rect x="14" y="14" width="7" height="7"></rect>
+                <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>总览</span>
+        </div>
+        <div class="nav-item" onclick="switchTab('analysis')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+            <span>分析</span>
+        </div>
+        <div class="nav-item" onclick="switchTab('insight')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <span>洞察</span>
+        </div>
+        <div class="nav-item" onclick="switchTab('list')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>名单</span>
+        </div>
+    </nav>
+
+    <!-- 详情弹窗 -->
+    <div id="detail-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">详情</h3>
+                <button class="modal-close" onclick="closeModal()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- 数据更新时间 -->
+    <footer class="footer">
+        <span>数据更新于：<span id="update-time"></span></span>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
