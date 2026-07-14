@@ -562,6 +562,9 @@ function showAnalysisTab(tab) {
     const config = data.analysisConfigs[tab];
     if (!config) return;
     
+    // 使用不同的canvas ID避免冲突
+    const canvasId = currentUnitType === 'college' ? 'collegeAnalysisChart' : 'deptAnalysisChart';
+    
     content.innerHTML = `
         <div class="analysis-summary">
             <div class="summary-item">
@@ -570,7 +573,7 @@ function showAnalysisTab(tab) {
             </div>
         </div>
         <div class="chart-card">
-            <canvas id="analysisChart"></canvas>
+            <canvas id="${canvasId}"></canvas>
         </div>
         <div class="data-table">
             <table>
@@ -610,14 +613,14 @@ function showAnalysisTab(tab) {
     
     // 使用requestAnimationFrame确保DOM完全渲染后初始化图表
     requestAnimationFrame(() => {
-        const canvas = document.getElementById('analysisChart');
+        const canvas = document.getElementById(canvasId);
         if (!canvas) return;
         
         // 检查canvas是否有尺寸
         if (canvas.offsetWidth === 0 || canvas.offsetHeight === 0) {
             // 如果canvas没有尺寸，再延迟一次
             setTimeout(() => {
-                const canvas2 = document.getElementById('analysisChart');
+                const canvas2 = document.getElementById(canvasId);
                 if (canvas2 && canvas2.offsetWidth > 0) {
                     createAnalysisChart(canvas2, config);
                 }
