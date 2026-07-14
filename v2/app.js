@@ -608,40 +608,56 @@ function showAnalysisTab(tab) {
         ` : ''}
     `;
     
-    // 立即初始化图表（禁用动画）
-    const canvas = document.getElementById('analysisChart');
-    if (canvas) {
-        if (currentAnalysisChart) {
-            currentAnalysisChart.destroy();
-            currentAnalysisChart = null;
+    // 使用requestAnimationFrame确保DOM完全渲染后初始化图表
+    requestAnimationFrame(() => {
+        const canvas = document.getElementById('analysisChart');
+        if (!canvas) return;
+        
+        // 检查canvas是否有尺寸
+        if (canvas.offsetWidth === 0 || canvas.offsetHeight === 0) {
+            // 如果canvas没有尺寸，再延迟一次
+            setTimeout(() => {
+                const canvas2 = document.getElementById('analysisChart');
+                if (canvas2 && canvas2.offsetWidth > 0) {
+                    createAnalysisChart(canvas2, config);
+                }
+            }, 100);
+            return;
         }
         
-        try {
-            currentAnalysisChart = new Chart(canvas.getContext('2d'), {
-                type: config.chartType,
-                data: config.chartData,
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    animation: false,
-                    cutout: config.chartType === 'doughnut' ? '60%' : undefined,
-                    plugins: {
-                        legend: {
-                            display: config.chartType === 'doughnut',
-                            position: 'bottom',
-                            labels: { padding: 12, usePointStyle: true, pointStyle: 'circle', font: { size: 12 } }
-                        }
-                    },
-                    scales: config.chartType === 'bar' ? {
-                        y: { beginAtZero: true, grid: { color: '#F3F4F6' } },
-                        x: { grid: { display: false } }
-                    } : undefined,
-                }
-            });
-        } catch (e) {
-            console.error('Chart error:', e);
-        }
+        createAnalysisChart(canvas, config);
+    });
+}
+
+function createAnalysisChart(canvas, config) {
+    if (currentAnalysisChart) {
+        currentAnalysisChart.destroy();
+        currentAnalysisChart = null;
     }
+    
+    try {
+        currentAnalysisChart = new Chart(canvas.getContext('2d'), {
+            type: config.chartType,
+            data: config.chartData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: false,
+                cutout: config.chartType === 'doughnut' ? '60%' : undefined,
+                plugins: {
+                    legend: {
+                        display: config.chartType === 'doughnut',
+                        position: 'bottom',
+                        labels: { padding: 12, usePointStyle: true, pointStyle: 'circle', font: { size: 12 } }
+                    }
+                },
+                scales: config.chartType === 'bar' ? {
+                    y: { beginAtZero: true, grid: { color: '#F3F4F6' } },
+                    x: { grid: { display: false } }
+                } : undefined,
+            }
+        });
+    } catch (e) {}
 }
 
 // 初始化人员列表
@@ -991,14 +1007,16 @@ function switchTab(tab, subType) {
     
     // 如果切换到分析Tab，确保分析内容和图表已初始化
     if (tab === 'analysis') {
-        // 立即初始化
-        if (currentUnitType === 'college') {
-            showAnalysisTab('age');
-            initCollegeCharts();
-        } else {
-            showAnalysisTab('dept-age');
-            initDepartmentCharts();
-        }
+        // 使用requestAnimationFrame确保页面完全显示后再初始化
+        requestAnimationFrame(() => {
+            if (currentUnitType === 'college') {
+                showAnalysisTab('age');
+                initCollegeCharts();
+            } else {
+                showAnalysisTab('dept-age');
+                initDepartmentCharts();
+            }
+        });
     }
     
     // 如果有子类型，更新筛选
