@@ -495,6 +495,12 @@ function resetAllCharts() {
         currentAnalysisChart.destroy();
         currentAnalysisChart = null;
     }
+    
+    // 清空分析内容容器
+    const collegeContent = document.getElementById('analysis-content-college');
+    const deptContent = document.getElementById('analysis-content-department');
+    if (collegeContent) collegeContent.innerHTML = '';
+    if (deptContent) deptContent.innerHTML = '';
 }
 
 // 渲染部门获奖人员名单
@@ -611,25 +617,21 @@ function showAnalysisTab(tab) {
         ` : ''}
     `;
     
-    // 使用requestAnimationFrame确保DOM完全渲染后初始化图表
-    requestAnimationFrame(() => {
-        const canvas = document.getElementById(canvasId);
+    // 等待DOM完全渲染后初始化图表
+    const initChart = () => {
+        // 从content容器中查找canvas，避免找到其他页面的canvas
+        const canvas = content.querySelector('canvas');
         if (!canvas) return;
         
-        // 检查canvas是否有尺寸
         if (canvas.offsetWidth === 0 || canvas.offsetHeight === 0) {
-            // 如果canvas没有尺寸，再延迟一次
-            setTimeout(() => {
-                const canvas2 = document.getElementById(canvasId);
-                if (canvas2 && canvas2.offsetWidth > 0) {
-                    createAnalysisChart(canvas2, config);
-                }
-            }, 100);
+            setTimeout(initChart, 50);
             return;
         }
         
         createAnalysisChart(canvas, config);
-    });
+    };
+    
+    requestAnimationFrame(() => requestAnimationFrame(initChart));
 }
 
 function createAnalysisChart(canvas, config) {
@@ -1010,15 +1012,22 @@ function switchTab(tab, subType) {
     
     // 如果切换到分析Tab，确保分析内容和图表已初始化
     if (tab === 'analysis') {
-        // 使用requestAnimationFrame确保页面完全显示后再初始化
+        // 先清空当前内容，再重新初始化
+        const contentId = currentUnitType === 'college' ? 'analysis-content-college' : 'analysis-content-department';
+        const content = document.getElementById(contentId);
+        if (content) content.innerHTML = '';
+        
+        // 使用双重requestAnimationFrame确保页面完全显示后再初始化
         requestAnimationFrame(() => {
-            if (currentUnitType === 'college') {
-                showAnalysisTab('age');
-                initCollegeCharts();
-            } else {
-                showAnalysisTab('dept-age');
-                initDepartmentCharts();
-            }
+            requestAnimationFrame(() => {
+                if (currentUnitType === 'college') {
+                    showAnalysisTab('age');
+                    initCollegeCharts();
+                } else {
+                    showAnalysisTab('dept-age');
+                    initDepartmentCharts();
+                }
+            });
         });
     }
     
