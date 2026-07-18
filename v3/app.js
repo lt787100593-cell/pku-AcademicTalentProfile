@@ -1,21 +1,56 @@
 // 模拟数据 - 学院
 const collegeData = {
     persons: [
+        // 专任教师 - 正高
         { id: 1, name: '张伟', title: '教授', education: '博士', category: 'teacher', joinDate: '2005-09-01', gender: '男', birthDate: '1975-06-15', talent: null },
-        { id: 2, name: '李明', title: '副教授', education: '博士', category: 'teacher', joinDate: '2010-07-20', gender: '男', birthDate: '1980-03-22', talent: null },
-        { id: 3, name: '王芳', title: '讲师', education: '博士', category: 'teacher', joinDate: '2015-08-10', gender: '女', birthDate: '1985-11-08', talent: null },
-        { id: 4, name: '刘洋', title: '助理教授', education: '博士', category: 'teacher', joinDate: '2018-09-05', gender: '男', birthDate: '1988-07-18', talent: '青年人才' },
         { id: 5, name: '陈静', title: '教授', education: '博士', category: 'teacher', joinDate: '2002-03-15', gender: '女', birthDate: '1972-04-25', talent: '杰青' },
-        { id: 6, name: '赵磊', title: '高级工程师', education: '硕士', category: 'staff', joinDate: '2008-06-01', gender: '男', birthDate: '1978-09-12', talent: null },
-        { id: 7, name: '孙丽', title: '会计师', education: '本科', category: 'staff', joinDate: '2012-04-10', gender: '女', birthDate: '1982-12-05', talent: null },
-        { id: 8, name: '周强', title: '合同制研究员', education: '博士', category: 'contract', joinDate: '2020-07-15', gender: '男', birthDate: '1990-02-28', talent: null },
-        { id: 9, name: '吴敏', title: '合同制助理', education: '硕士', category: 'contract', joinDate: '2021-08-20', gender: '女', birthDate: '1992-05-16', talent: null },
-        { id: 10, name: '郑涛', title: '博士后', education: '博士', category: 'postdoc', joinDate: '2023-09-01', gender: '男', birthDate: '1993-10-08', talent: null },
-        { id: 11, name: '黄燕', title: '博士后', education: '博士', category: 'postdoc', joinDate: '2024-01-10', gender: '女', birthDate: '1994-08-22', talent: null },
         { id: 12, name: '马骏', title: '教授', education: '博士', category: 'teacher', joinDate: '2000-03-01', gender: '男', birthDate: '1968-05-15', talent: '长江学者' },
         { id: 13, name: '高洁', title: '教授', education: '博士', category: 'teacher', joinDate: '2003-07-01', gender: '女', birthDate: '1973-09-20', talent: '杰青' },
         { id: 14, name: '林峰', title: '教授', education: '博士', category: 'teacher', joinDate: '1990-09-01', gender: '男', birthDate: '1960-03-10', talent: '院士' },
+        { id: 16, name: '周明', title: '教授', education: '博士', category: 'teacher', joinDate: '1998-09-01', gender: '男', birthDate: '1970-08-12', talent: '长江学者' },
+        { id: 17, name: '吴华', title: '教授', education: '博士', category: 'teacher', joinDate: '2001-03-15', gender: '女', birthDate: '1971-11-20', talent: null },
+        { id: 18, name: '郑强', title: '教授', education: '博士', category: 'teacher', joinDate: '1996-09-01', gender: '男', birthDate: '1966-05-08', talent: '杰青' },
+        // 专任教师 - 副高
+        { id: 2, name: '李明', title: '副教授', education: '博士', category: 'teacher', joinDate: '2010-07-20', gender: '男', birthDate: '1980-03-22', talent: null },
         { id: 15, name: '何华', title: '副教授', education: '硕士', category: 'teacher', joinDate: '1995-07-01', gender: '男', birthDate: '1965-11-25', talent: null },
+        { id: 19, name: '王丽', title: '副教授', education: '博士', category: 'teacher', joinDate: '2012-09-01', gender: '女', birthDate: '1982-04-18', talent: null },
+        { id: 20, name: '赵刚', title: '副教授', education: '博士', category: 'teacher', joinDate: '2011-07-15', gender: '男', birthDate: '1981-09-30', talent: '青年人才' },
+        { id: 21, name: '孙芳', title: '副教授', education: '博士', category: 'teacher', joinDate: '2013-09-01', gender: '女', birthDate: '1983-07-12', talent: null },
+        { id: 22, name: '刘涛', title: '副教授', education: '博士', category: 'teacher', joinDate: '2014-03-15', gender: '男', birthDate: '1984-12-05', talent: null },
+        { id: 23, name: '黄磊', title: '副教授', education: '博士', category: 'teacher', joinDate: '2009-09-01', gender: '男', birthDate: '1979-06-20', talent: '青年人才' },
+        { id: 24, name: '杨静', title: '副教授', education: '博士', category: 'teacher', joinDate: '2015-09-01', gender: '女', birthDate: '1985-10-15', talent: null },
+        { id: 25, name: '朱军', title: '副教授', education: '博士', category: 'teacher', joinDate: '2010-03-01', gender: '男', birthDate: '1980-08-22', talent: null },
+        // 专任教师 - 中级
+        { id: 3, name: '王芳', title: '讲师', education: '博士', category: 'teacher', joinDate: '2015-08-10', gender: '女', birthDate: '1985-11-08', talent: null },
+        { id: 4, name: '刘洋', title: '助理教授', education: '博士', category: 'teacher', joinDate: '2018-09-05', gender: '男', birthDate: '1988-07-18', talent: '青年人才' },
+        { id: 26, name: '胡敏', title: '讲师', education: '博士', category: 'teacher', joinDate: '2017-09-01', gender: '女', birthDate: '1987-03-25', talent: null },
+        { id: 27, name: '林涛', title: '助理教授', education: '博士', category: 'teacher', joinDate: '2019-09-01', gender: '男', birthDate: '1989-05-18', talent: null },
+        { id: 28, name: '郭华', title: '讲师', education: '博士', category: 'teacher', joinDate: '2016-09-01', gender: '女', birthDate: '1986-09-10', talent: null },
+        { id: 29, name: '何明', title: '助理教授', education: '博士', category: 'teacher', joinDate: '2020-09-01', gender: '男', birthDate: '1990-01-20', talent: null },
+        { id: 30, name: '罗芳', title: '讲师', education: '博士', category: 'teacher', joinDate: '2018-09-01', gender: '女', birthDate: '1988-06-15', talent: null },
+        // 专任教师 - 初级
+        { id: 31, name: '谢伟', title: '助教', education: '博士', category: 'teacher', joinDate: '2021-09-01', gender: '男', birthDate: '1991-08-12', talent: null },
+        { id: 32, name: '韩梅', title: '助教', education: '硕士', category: 'teacher', joinDate: '2022-09-01', gender: '女', birthDate: '1992-11-25', talent: null },
+        // 非专任教师（行政等）
+        { id: 6, name: '赵磊', title: '高级工程师', education: '硕士', category: 'staff', joinDate: '2008-06-01', gender: '男', birthDate: '1978-09-12', talent: null },
+        { id: 7, name: '孙丽', title: '会计师', education: '本科', category: 'staff', joinDate: '2012-04-10', gender: '女', birthDate: '1982-12-05', talent: null },
+        { id: 33, name: '曹强', title: '副研究员', education: '博士', category: 'staff', joinDate: '2010-09-01', gender: '男', birthDate: '1980-02-18', talent: null },
+        { id: 34, name: '彭芳', title: '助理研究员', education: '硕士', category: 'staff', joinDate: '2015-07-01', gender: '女', birthDate: '1985-05-30', talent: null },
+        { id: 35, name: '蒋华', title: '工程师', education: '硕士', category: 'staff', joinDate: '2013-09-01', gender: '男', birthDate: '1983-10-08', talent: null },
+        { id: 36, name: '沈丽', title: '助理工程师', education: '本科', category: 'staff', joinDate: '2019-09-01', gender: '女', birthDate: '1990-04-20', talent: null },
+        // 合同制
+        { id: 8, name: '周强', title: '合同制研究员', education: '博士', category: 'contract', joinDate: '2020-07-15', gender: '男', birthDate: '1990-02-28', talent: null },
+        { id: 9, name: '吴敏', title: '合同制助理', education: '硕士', category: 'contract', joinDate: '2021-08-20', gender: '女', birthDate: '1992-05-16', talent: null },
+        { id: 37, name: '吕超', title: '合同制研究员', education: '博士', category: 'contract', joinDate: '2022-07-01', gender: '男', birthDate: '1991-07-12', talent: null },
+        { id: 38, name: '苏芳', title: '合同制助理', education: '硕士', category: 'contract', joinDate: '2023-09-01', gender: '女', birthDate: '1993-09-25', talent: null },
+        { id: 39, name: '卢涛', title: '合同制工程师', education: '硕士', category: 'contract', joinDate: '2021-03-15', gender: '男', birthDate: '1991-12-08', talent: null },
+        { id: 40, name: '任丽', title: '合同制助理', education: '本科', category: 'contract', joinDate: '2024-01-10', gender: '女', birthDate: '1994-06-18', talent: null },
+        // 博士后
+        { id: 10, name: '郑涛', title: '博士后', education: '博士', category: 'postdoc', joinDate: '2023-09-01', gender: '男', birthDate: '1993-10-08', talent: null },
+        { id: 11, name: '黄燕', title: '博士后', education: '博士', category: 'postdoc', joinDate: '2024-01-10', gender: '女', birthDate: '1994-08-22', talent: null },
+        { id: 41, name: '丁磊', title: '博士后', education: '博士', category: 'postdoc', joinDate: '2023-03-01', gender: '男', birthDate: '1992-11-15', talent: null },
+        { id: 42, name: '贺芳', title: '博士后', education: '博士', category: 'postdoc', joinDate: '2024-09-01', gender: '女', birthDate: '1995-03-20', talent: null },
+        { id: 43, name: '龙涛', title: '博士后', education: '博士', category: 'postdoc', joinDate: '2023-09-01', gender: '男', birthDate: '1993-07-08', talent: null },
     ],
     // 近十年拟退休名单
     retirePersons: [
@@ -33,12 +68,12 @@ const staffDistributionData = {
     titleEdu: {
         labels: ['正高', '副高', '中级', '初级'],
         all: {
-            teacher: { label: '专任教师', data: [38, 75, 50, 8], color: '#8C1515' },
-            nonTeacher: { label: '非专任教师', data: [2, 8, 5, 0], color: '#1E3A5F' },
+            teacher: { label: '专任教师', data: [8, 8, 8, 2], color: '#8C1515' },
+            nonTeacher: { label: '非专任教师', data: [0, 2, 3, 1], color: '#1E3A5F' },
             edu: [
-                { label: '博士', teacher: [35, 68, 42, 5], nonTeacher: [1, 5, 3, 0], color: '#8C1515' },
-                { label: '硕士', teacher: [3, 6, 7, 3], nonTeacher: [1, 2, 2, 0], color: '#D97706' },
-                { label: '本科', teacher: [0, 1, 1, 0], nonTeacher: [0, 1, 0, 0], color: '#9CA3AF' }
+                { label: '博士', teacher: [8, 7, 7, 1], nonTeacher: [0, 1, 1, 0], color: '#8C1515' },
+                { label: '硕士', teacher: [0, 1, 1, 1], nonTeacher: [0, 1, 1, 0], color: '#D97706' },
+                { label: '本科', teacher: [0, 0, 0, 0], nonTeacher: [0, 0, 1, 1], color: '#9CA3AF' }
             ]
         }
     },
@@ -48,16 +83,16 @@ const staffDistributionData = {
         data: {
             all: {
                 teacher: [
-                    [0, 0, 2, 5, 12, 10, 7, 2],
-                    [0, 3, 12, 20, 22, 18, 12, 3],
-                    [2, 8, 15, 12, 8, 3, 2, 0],
-                    [5, 8, 6, 3, 2, 0, 0, 0]
+                    [0, 0, 0, 1, 2, 2, 2, 1],
+                    [0, 0, 2, 3, 2, 1, 0, 0],
+                    [0, 2, 3, 2, 1, 0, 0, 0],
+                    [0, 2, 0, 0, 0, 0, 0, 0]
                 ],
                 nonTeacher: [
-                    [0, 0, 0, 1, 1, 1, 1, 0],
-                    [0, 1, 2, 2, 2, 1, 0, 0],
-                    [1, 3, 4, 3, 2, 1, 0, 0],
-                    [2, 4, 3, 2, 1, 0, 0, 0]
+                    [0, 0, 0, 0, 1, 1, 0, 0],
+                    [0, 0, 1, 1, 0, 0, 0, 0],
+                    [0, 1, 1, 1, 0, 0, 0, 0],
+                    [0, 1, 0, 0, 0, 0, 0, 0]
                 ]
             }
         }
@@ -68,16 +103,16 @@ const staffDistributionData = {
         data: {
             all: {
                 teacher: [
-                    [0, 2, 5, 10, 21],
-                    [5, 15, 22, 18, 15],
-                    [12, 18, 10, 6, 4],
-                    [8, 10, 5, 4, 3]
+                    [0, 1, 2, 2, 3],
+                    [2, 3, 2, 1, 0],
+                    [3, 3, 1, 1, 0],
+                    [2, 0, 0, 0, 0]
                 ],
                 nonTeacher: [
-                    [0, 1, 1, 1, 0],
-                    [2, 3, 2, 1, 0],
-                    [3, 4, 3, 2, 1],
-                    [4, 3, 2, 1, 0]
+                    [0, 1, 0, 1, 0],
+                    [1, 1, 0, 0, 0],
+                    [2, 1, 0, 0, 0],
+                    [1, 0, 0, 0, 0]
                 ]
             }
         }
@@ -88,14 +123,14 @@ const staffDistributionData = {
         data: {
             all: {
                 teacher: [
-                    [2, 10, 16, 24, 30, 25, 18, 5],
-                    [0, 1, 5, 6, 6, 4, 3, 0],
-                    [0, 0, 1, 2, 3, 2, 2, 0]
+                    [0, 3, 5, 5, 4, 2, 1, 1],
+                    [0, 1, 1, 1, 1, 0, 0, 0],
+                    [0, 0, 0, 0, 0, 0, 0, 0]
                 ],
                 nonTeacher: [
-                    [1, 4, 5, 4, 3, 2, 1, 0],
-                    [2, 5, 6, 5, 4, 2, 1, 0],
-                    [0, 3, 4, 3, 2, 1, 0, 0]
+                    [0, 1, 1, 1, 0, 0, 0, 0],
+                    [0, 1, 1, 0, 1, 0, 0, 0],
+                    [0, 1, 0, 0, 0, 0, 0, 0]
                 ]
             }
         }
@@ -104,8 +139,8 @@ const staffDistributionData = {
         labels: ['正高', '副高', '中级', '初级'],
         data: {
             all: {
-                teacher: { male: [28, 52, 35, 5], female: [10, 23, 15, 3] },
-                nonTeacher: { male: [1, 5, 3, 0], female: [1, 3, 2, 0] }
+                teacher: { male: [6, 5, 5, 1], female: [2, 3, 3, 1] },
+                nonTeacher: { male: [0, 1, 2, 0], female: [0, 1, 1, 1] }
             }
         }
     },
@@ -115,14 +150,14 @@ const staffDistributionData = {
         data: {
             all: {
                 teacher: [
-                    [8, 15, 15],
-                    [18, 35, 22],
-                    [10, 25, 15],
-                    [3, 4, 1]
+                    [2, 3, 3],
+                    [2, 4, 2],
+                    [2, 4, 2],
+                    [1, 1, 0]
                 ],
                 nonTeacher: {
-                    '本校学缘': [0, 3, 2, 0],
-                    '国内学缘': [2, 5, 3, 0],
+                    '本校学缘': [0, 1, 1, 0],
+                    '国内学缘': [0, 1, 2, 1],
                     '海外学缘': [0, 0, 0, 0]
                 }
             }
@@ -135,53 +170,53 @@ const deptDistributionData = {
     titleEdu: {
         labels: ['正高', '副高', '中级', '初级'],
         edu: [
-            { label: '博士', data: [1, 2, 1, 0], color: '#8C1515' },
-            { label: '硕士', data: [0, 1, 2, 1], color: '#D97706' },
-            { label: '本科', data: [0, 0, 1, 1], color: '#9CA3AF' }
+            { label: '博士', data: [2, 1, 0, 0], color: '#8C1515' },
+            { label: '硕士', data: [0, 2, 3, 1], color: '#D97706' },
+            { label: '本科', data: [0, 0, 2, 2], color: '#9CA3AF' }
         ]
     },
     titleAge: {
         labels: ['正高', '副高', '中级', '初级'],
         ageGroups: ['25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60+'],
         data: [
-            [0, 0, 0, 0, 0, 1, 0, 0],
-            [0, 0, 1, 1, 1, 0, 0, 0],
-            [1, 2, 1, 0, 0, 0, 0, 0],
-            [1, 1, 0, 0, 0, 0, 0, 0]
+            [0, 0, 0, 0, 0, 1, 1, 0],
+            [0, 0, 1, 2, 1, 0, 0, 0],
+            [1, 2, 2, 1, 0, 0, 0, 0],
+            [1, 1, 1, 0, 0, 0, 0, 0]
         ]
     },
     titleTenure: {
         labels: ['正高', '副高', '中级', '初级'],
         tenureGroups: ['1-5年', '6-10年', '11-15年', '16-20年', '20年+'],
         data: [
-            [0, 0, 1, 0, 0],
-            [1, 1, 1, 0, 0],
-            [2, 1, 1, 0, 0],
-            [1, 1, 0, 0, 0]
+            [0, 0, 1, 0, 1],
+            [1, 1, 1, 1, 0],
+            [2, 2, 1, 0, 0],
+            [2, 1, 0, 0, 0]
         ]
     },
     eduAge: {
         labels: ['博士', '硕士', '本科'],
         ageGroups: ['25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60+'],
         data: [
-            [0, 1, 1, 1, 1, 0, 0, 0],
-            [1, 1, 1, 1, 0, 1, 0, 0],
-            [1, 1, 0, 0, 0, 0, 0, 0]
+            [0, 1, 1, 1, 0, 0, 0, 0],
+            [1, 2, 2, 1, 1, 1, 0, 0],
+            [1, 1, 1, 0, 0, 0, 0, 0]
         ]
     },
     titleGender: {
         labels: ['正高', '副高', '中级', '初级'],
-        male: [1, 2, 2, 1],
-        female: [0, 1, 2, 1]
+        male: [2, 3, 4, 2],
+        female: [0, 1, 2, 2]
     },
     titleOrigin: {
         labels: ['正高', '副高', '中级', '初级'],
         originGroups: ['本校学缘', '国内学缘', '海外学缘'],
         data: [
-            [0, 1, 0],
-            [1, 1, 1],
+            [1, 1, 0],
             [1, 2, 1],
-            [1, 1, 0]
+            [2, 3, 1],
+            [2, 1, 1]
         ]
     }
 };
@@ -213,16 +248,31 @@ const chartColors = ['#8C1515', '#1E3A5F', '#D97706', '#16A34A', '#3B82F6', '#9C
 // 模拟数据 - 职能部门（计算中心）
 const departmentData = {
     persons: [
-        { id: 1, name: '王建国', title: '正高级工程师', education: '博士', category: 'staff', joinDate: '2000-03-15', gender: '男', birthDate: '1968-05-20', talent: null },
+        // 在职人员 - 正高
+        { id: 1, name: '王建国', title: '正高级工程师', education: '博士', category: 'staff', joinDate: '2000-03-15', gender: '男', birthDate: '1968-05-20', talent: '学科带头人' },
+        { id: 11, name: '陈志远', title: '正高级工程师', education: '博士', category: 'staff', joinDate: '1998-09-01', gender: '男', birthDate: '1966-08-12', talent: null },
+        // 在职人员 - 副高
         { id: 2, name: '李秀英', title: '高级工程师', education: '硕士', category: 'staff', joinDate: '2005-07-01', gender: '女', birthDate: '1975-09-12', talent: null },
-        { id: 3, name: '张明', title: '工程师', education: '硕士', category: 'staff', joinDate: '2012-08-15', gender: '男', birthDate: '1982-04-08', talent: null },
-        { id: 4, name: '刘芳', title: '助理工程师', education: '本科', category: 'staff', joinDate: '2018-09-01', gender: '女', birthDate: '1990-11-25', talent: null },
         { id: 5, name: '陈伟', title: '高级工程师', education: '硕士', category: 'staff', joinDate: '2008-04-10', gender: '男', birthDate: '1978-07-18', talent: null },
+        { id: 12, name: '张丽华', title: '高级工程师', education: '博士', category: 'staff', joinDate: '2006-09-01', gender: '女', birthDate: '1976-11-25', talent: '技术骨干' },
+        { id: 13, name: '刘德明', title: '高级工程师', education: '硕士', category: 'staff', joinDate: '2009-03-15', gender: '男', birthDate: '1979-04-08', talent: null },
+        // 在职人员 - 中级
+        { id: 3, name: '张明', title: '工程师', education: '硕士', category: 'staff', joinDate: '2012-08-15', gender: '男', birthDate: '1982-04-08', talent: null },
         { id: 6, name: '赵敏', title: '工程师', education: '本科', category: 'staff', joinDate: '2015-06-20', gender: '女', birthDate: '1985-02-14', talent: null },
+        { id: 14, name: '孙志强', title: '工程师', education: '硕士', category: 'staff', joinDate: '2014-09-01', gender: '男', birthDate: '1984-09-30', talent: null },
+        { id: 15, name: '周雪梅', title: '工程师', education: '本科', category: 'staff', joinDate: '2016-07-01', gender: '女', birthDate: '1986-12-18', talent: null },
+        { id: 16, name: '吴刚', title: '工程师', education: '硕士', category: 'staff', joinDate: '2013-03-15', gender: '男', birthDate: '1983-06-22', talent: null },
+        // 在职人员 - 初级
+        { id: 4, name: '刘芳', title: '助理工程师', education: '本科', category: 'staff', joinDate: '2018-09-01', gender: '女', birthDate: '1990-11-25', talent: null },
         { id: 7, name: '周强', title: '助理工程师', education: '本科', category: 'staff', joinDate: '2020-07-05', gender: '男', birthDate: '1992-08-30', talent: null },
+        { id: 17, name: '黄丽萍', title: '助理工程师', education: '本科', category: 'staff', joinDate: '2021-09-01', gender: '女', birthDate: '1993-03-15', talent: null },
+        { id: 18, name: '杨波', title: '助理工程师', education: '硕士', category: 'staff', joinDate: '2022-09-01', gender: '男', birthDate: '1994-07-20', talent: null },
+        // 合同制
         { id: 8, name: '吴丽', title: '合同制工程师', education: '硕士', category: 'contract', joinDate: '2021-08-10', gender: '女', birthDate: '1991-03-22', talent: null },
         { id: 9, name: '郑涛', title: '合同制助理', education: '本科', category: 'contract', joinDate: '2022-09-01', gender: '男', birthDate: '1993-12-15', talent: null },
         { id: 10, name: '黄燕', title: '合同制助理', education: '本科', category: 'contract', joinDate: '2023-07-15', gender: '女', birthDate: '1994-06-08', talent: null },
+        { id: 19, name: '马超', title: '合同制工程师', education: '硕士', category: 'contract', joinDate: '2022-03-01', gender: '男', birthDate: '1992-10-12', talent: null },
+        { id: 20, name: '林小红', title: '合同制助理', education: '本科', category: 'contract', joinDate: '2024-01-10', gender: '女', birthDate: '1995-02-28', talent: null },
     ],
     // 近十年拟退休名单
     retirePersons: [
