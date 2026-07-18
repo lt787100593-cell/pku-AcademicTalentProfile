@@ -1106,9 +1106,9 @@ function initEventListeners() {
     });
     
     // 专任教师/非专任教师筛选
-    document.querySelectorAll('#analysis-distribution .type-chip[data-filter]').forEach(chip => {
+    document.querySelectorAll('#page-analysis-college .type-chip[data-filter]').forEach(chip => {
         chip.addEventListener('click', function() {
-            document.querySelectorAll('#analysis-distribution .type-chip[data-filter]').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('#page-analysis-college .type-chip[data-filter]').forEach(c => c.classList.remove('active'));
             this.classList.add('active');
             
             const activeTab = document.querySelector('#page-analysis-college .level-3 .tab-item.active');
@@ -1195,6 +1195,10 @@ function filterDepartmentPersonList() {
     retireList.style.display = 'none';
     
     let filtered = departmentData.persons;
+    
+    if (currentType === 'talent') {
+        filtered = filtered.filter(p => p.talent);
+    }
     
     if (keyword) {
         filtered = filtered.filter(p => 
