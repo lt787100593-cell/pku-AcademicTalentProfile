@@ -377,9 +377,9 @@ const ageCompositionData = {
 
 // 职称构成数据（区分专任/非专任）
 const titleCompositionData = {
-    all: { data: [15, 18, 12, 7], label: '全部', percentSenior: 62,正高Count: 15, rank: '第5/28位', rankLevel: '上游' },
-    teacher: { data: [15, 12, 8, 2], label: '专任教师', percentSenior: 69,正高Count: 15, rank: '第3/28位', rankLevel: '上游' },
-    'non-teacher': { data: [0, 6, 4, 5], label: '非专任教师', percentSenior: 40,正高Count: 0, rank: '第18/28位', rankLevel: '下游' }
+    all: { data: [15, 18, 12, 7], label: '全部', percentSenior: 62, zhengGaoCount: 15, rank: '第5/28位', rankLevel: '上游' },
+    teacher: { data: [15, 12, 8, 2], label: '专任教师', percentSenior: 69, zhengGaoCount: 15, rank: '第3/28位', rankLevel: '上游' },
+    'non-teacher': { data: [0, 6, 4, 5], label: '非专任教师', percentSenior: 40, zhengGaoCount: 0, rank: '第18/28位', rankLevel: '下游' }
 };
 
 // 学历构成数据（区分专任/非专任）
@@ -999,7 +999,7 @@ function updateTitleIndicators(data) {
     const rankEl = document.querySelector('#analysis-title-content .rank-badge');
     
     if (percentEl) percentEl.textContent = data.percentSenior + '%';
-    if (countEl) countEl.textContent = data.正高Count + '人';
+    if (countEl) countEl.textContent = data.zhengGaoCount + '人';
     if (rankEl) {
         rankEl.textContent = '同类' + data.rank + ' · ' + data.rankLevel;
         rankEl.className = 'rank-badge ' + (data.rankLevel === '上游' ? 'good' : data.rankLevel === '中上游' ? 'medium' : data.rankLevel === '中下游' ? 'warning' : 'danger');
@@ -1054,68 +1054,6 @@ function updateEduIndicators(data) {
         rankEl.textContent = '同类' + data.rank + ' · ' + data.rankLevel;
         rankEl.className = 'rank-badge ' + (data.rankLevel === '上游' ? 'good' : data.rankLevel === '中上游' ? 'medium' : data.rankLevel === '中下游' ? 'warning' : 'danger');
     }
-}
-
-// 学院职称构成图表
-function initCollegeTitleAnalysisChart() {
-    const ctx = document.getElementById('college-title-analysis-chart');
-    if (!ctx) return;
-    
-    // 销毁旧图表
-    if (collegeTitleAnalysisChart) {
-        collegeTitleAnalysisChart.destroy();
-        collegeTitleAnalysisChart = null;
-    }
-    
-    collegeTitleAnalysisChart = new Chart(ctx.getContext('2d'), {
-        type: 'doughnut',
-        data: {
-            labels: ['正高', '副高', '中级', '初级'],
-            datasets: [{
-                data: [15, 18, 12, 7],
-                backgroundColor: [chartColors.primary, chartColors.secondary, chartColors.tertiary, chartColors.quaternary],
-                borderWidth: 0
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            animation: false,
-            cutout: '60%',
-            plugins: { legend: { position: 'bottom', labels: { padding: 12, usePointStyle: true, pointStyle: 'circle', font: { size: 11 } } } }
-        }
-    });
-}
-
-// 学院学历构成图表
-function initCollegeEduAnalysisChart() {
-    const ctx = document.getElementById('college-edu-analysis-chart');
-    if (!ctx) return;
-    
-    // 销毁旧图表
-    if (collegeEduAnalysisChart) {
-        collegeEduAnalysisChart.destroy();
-        collegeEduAnalysisChart = null;
-    }
-    
-    collegeEduAnalysisChart = new Chart(ctx.getContext('2d'), {
-        type: 'doughnut',
-        data: {
-            labels: ['博士', '硕士', '本科及以下'],
-            datasets: [{
-                data: [68, 22, 10],
-                backgroundColor: [chartColors.primary, chartColors.secondary, chartColors.quaternary],
-                borderWidth: 0
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            animation: false,
-            cutout: '60%',
-            plugins: { legend: { position: 'bottom', labels: { padding: 12, usePointStyle: true, pointStyle: 'circle', font: { size: 11 } } } }
-        }
-    });
 }
 
 // 部门年龄构成图表
